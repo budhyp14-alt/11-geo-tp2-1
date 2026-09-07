@@ -1,407 +1,1153 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Geografi & LKPD Interaktif</title>
+    <title>Modul & LKPD Geografi Kelas XI - Pembelajaran Mendalam</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
-        /* Animasi Rotasi 360 Derajat Horizontal untuk Menu */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Navigasi Kotak Menu Berputar 360 Derajat Horizontal Secara Perlahan */
         .menu-box {
-            transition: transform 1.5s ease-in-out;
+            transition: transform 1.2s ease-in-out, box-shadow 0.3s ease;
             transform-style: preserve-3d;
         }
         .menu-box:hover {
             transform: rotateY(360deg);
         }
 
-        /* Warna Khusus Sesuai Palet */
-        .bg-custom-purple { background-color: #8B008B; color: #FFFFFF; }
-        .bg-custom-blue { background-color: #0000FF; color: #FFFFFF; }
-        .bg-custom-lime { background-color: #00FF00; color: #000000; }
-        .bg-custom-yellow { background-color: #FFFF00; color: #000000; }
-        .bg-custom-orange { background-color: #FFA500; color: #000000; }
-        .bg-custom-red { background-color: #FF0000; color: #FFFFFF; }
-        .bg-custom-darkgreen { background-color: #008000; color: #FFFFFF; }
+        /* Kode Palet Warna Kustom */
+        .bg-custom-purple { background-color: #8B008B; }
+        .bg-custom-blue { background-color: #0000FF; }
+        .bg-custom-lime { background-color: #00FF00; }
+        .bg-custom-yellow { background-color: #FFFF00; }
+        .bg-custom-orange { background-color: #FFA500; }
+        .bg-custom-red { background-color: #FF0000; }
+        .bg-custom-darkgreen { background-color: #008000; }
 
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .border-custom-purple { border-color: #8B008B; }
+        .border-custom-blue { border-color: #0000FF; }
+        .border-custom-lime { border-color: #00FF00; }
+        .border-custom-yellow { border-color: #FFFF00; }
+        .border-custom-orange { border-color: #FFA500; }
+        .border-custom-red { border-color: #FF0000; }
+        .border-custom-darkgreen { border-color: #008000; }
+
+        .text-custom-purple { color: #8B008B; }
+        .text-custom-blue { color: #0000FF; }
+        .text-custom-darkgreen { color: #008000; }
+
+        /* Menyembunyikan tag penanda dokumen secara visual dari layar siswa */
+        .cite-tag { display: none !important; }
     </style>
 </head>
-<body class="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 min-h-screen text-gray-900 font-sans">
+<body class="bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 min-h-screen text-slate-100 antialiased selection:bg-custom-yellow selection:text-black">
 
-    <!-- Navigasi Menu -->
-    <nav class="sticky top-0 z-50 bg-gradient-to-r from-yellow-300 via-orange-300 to-red-300 shadow-2xl p-4 border-b-8 border-custom-purple">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-3 md:gap-4">
-            <a href="#materi" class="menu-box bg-custom-purple font-extrabold py-3 px-6 rounded-2xl flex items-center gap-2 shadow-xl border-2 border-white">
-                <i class="fa-solid fa-book-open fa-beat"></i> Materi
+    <!-- NAVIGASI HORIZONTAL ATAS (Kotak Berputar 360 Derajat Pelan) -->
+    <header class="sticky top-0 z-50 bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900/95 backdrop-blur-md border-b-4 border-custom-yellow shadow-2xl p-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <a href="#identitas" class="menu-box bg-custom-purple text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-fuchsia-300">
+                <i class="fa-solid fa-id-card fa-beat"></i> Identitas
             </a>
-            <a href="#lkpd-pg" class="menu-box bg-custom-blue font-extrabold py-3 px-6 rounded-2xl flex items-center gap-2 shadow-xl border-2 border-white">
-                <i class="fa-solid fa-list-check fa-bounce"></i> Pilihan Ganda
+            <a href="#tujuan" class="menu-box bg-custom-blue text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-cyan-300">
+                <i class="fa-solid fa-bullseye fa-spin"></i> Tujuan
             </a>
-            <a href="#lkpd-esai" class="menu-box bg-custom-lime font-extrabold py-3 px-6 rounded-2xl flex items-center gap-2 shadow-xl border-2 border-white">
-                <i class="fa-solid fa-pen-clip fa-shake"></i> Esai
+            <a href="#pemantik" class="menu-box bg-custom-lime text-black font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-emerald-300">
+                <i class="fa-solid fa-lightbulb fa-bounce"></i> Pemantik
             </a>
-            <a href="#lkpd-jodoh" class="menu-box bg-custom-yellow font-extrabold py-3 px-6 rounded-2xl flex items-center gap-2 shadow-xl border-2 border-black">
-                <i class="fa-solid fa-link fa-spin"></i> Gabung Kata
+            <a href="#materi" class="menu-box bg-custom-yellow text-black font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-amber-500">
+                <i class="fa-solid fa-book-open-reader fa-fade"></i> Materi
             </a>
-            <a href="#kirim-nilai" class="menu-box bg-custom-orange font-extrabold py-3 px-6 rounded-2xl flex items-center gap-2 shadow-xl border-2 border-black">
-                <i class="fa-solid fa-paper-plane fa-fade"></i> Kirim Nilai
+            <a href="#lkpd-pg" class="menu-box bg-custom-orange text-black font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-orange-200">
+                <i class="fa-solid fa-list-check fa-shake"></i> Pilihan Ganda
             </a>
-            <a href="#refleksi" class="menu-box bg-custom-red font-extrabold py-3 px-6 rounded-2xl flex items-center gap-2 shadow-xl border-2 border-white">
-                <i class="fa-solid fa-comment-dots fa-beat-fade"></i> Refleksi
+            <a href="#lkpd-jodoh" class="menu-box bg-custom-red text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-rose-300">
+                <i class="fa-solid fa-puzzle-piece fa-flip"></i> Menjodohkan
+            </a>
+            <a href="#lkpd-esai" class="menu-box bg-custom-darkgreen text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-green-300">
+                <i class="fa-solid fa-pen-nib fa-beat-fade"></i> Soal Esai
+            </a>
+            <a href="#kirim-nilai" class="menu-box bg-gradient-to-r from-red-600 to-orange-500 text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-yellow-300">
+                <i class="fa-solid fa-calculator fa-beat"></i> Skor LKPD
+            </a>
+            <a href="#refleksi" class="menu-box bg-gradient-to-r from-purple-600 to-pink-600 text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-2xl flex items-center gap-2 shadow-lg border-2 border-pink-300">
+                <i class="fa-solid fa-heart fa-bounce"></i> Refleksi
             </a>
         </div>
-    </nav>
+    </header>
 
-    <div class="max-w-6xl mx-auto p-4 sm:p-6 mt-6">
-        
-        <!-- Identitas Siswa -->
-        <div class="bg-custom-yellow rounded-3xl shadow-2xl p-8 mb-10 border-8 border-custom-orange relative overflow-hidden">
-            <i class="fa-solid fa-user-graduate absolute -right-4 -top-4 text-9xl text-yellow-300 -z-10 opacity-50"></i>
-            <h2 class="text-3xl font-black mb-4 text-black"><i class="fa-solid fa-id-card fa-flip text-custom-red"></i> Identitas Siswa</h2>
-            <input type="text" id="namaSiswa" placeholder="Masukkan Nama Lengkap Anda di sini..." class="w-full p-5 bg-white border-4 border-custom-blue rounded-2xl focus:outline-none focus:border-custom-purple text-xl font-bold text-black shadow-inner" required>
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- JUDUL MODUL -->
+        <div class="text-center bg-gradient-to-r from-purple-800 via-indigo-700 to-blue-800 p-8 rounded-3xl border-4 border-custom-yellow shadow-2xl relative overflow-hidden">
+            <i class="fa-solid fa-earth-americas absolute -left-10 -bottom-10 text-9xl text-white/10 fa-spin-slow"></i>
+            <i class="fa-solid fa-seedling absolute -right-10 -top-10 text-9xl text-white/10 fa-bounce"></i>
+            <span class="bg-custom-yellow text-black font-black text-xs sm:text-sm uppercase tracking-widest px-4 py-2 rounded-full inline-block shadow-md mb-4 border-2 border-black">
+                <i class="fa-solid fa-graduation-cap me-1"></i> FASE F (KELAS XI SMA)
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                MODUL PEMBELAJARAN GEOGRAFI KELAS XI
+            </h1>
+            <p class="text-xl sm:text-2xl font-extrabold text-yellow-300 mt-2">
+                Topik: Dinamika dan Faktor Persebaran Flora dan Fauna di Dunia dan Indonesia <span class="cite-tag"></span>
+            </p>
+            <div class="inline-block mt-4 bg-black/40 backdrop-blur px-5 py-2 rounded-2xl border border-white/20">
+                <p class="text-cyan-300 font-bold text-sm sm:text-base">
+                    <i class="fa-solid fa-compass-drafting text-custom-lime fa-spin me-2"></i>Pendekatan: Pembelajaran Mendalam (Deep Learning: Mindful, Meaningful, & Joyful) <span class="cite-tag"></span>
+                </p>
+            </div>
         </div>
 
-        <!-- Materi Pokok -->
-        <section id="materi" class="bg-custom-purple rounded-3xl shadow-2xl p-6 md:p-10 mb-10 border-8 border-custom-lime">
-            <h2 class="text-4xl font-black mb-6 text-white border-b-4 border-white pb-4 shadow-sm"><i class="fa-solid fa-book-journal-whills fa-bounce text-custom-yellow"></i> Materi Pokok Pembelajaran</h2>
-            
-            <div class="bg-fuchsia-200 text-black p-6 rounded-2xl mb-6 shadow-lg text-lg font-bold">
-                <p>Flora (tumbuhan) dan fauna (hewan) di bumi tidak tinggal di sembarang tempat karena setiap makhluk hidup membutuhkan "rumah" yang cocok dengan kondisi fisiknya. Perbedaan tempat tinggal makhluk hidup ini dikendalikan oleh empat faktor utama: Klimatik (Cuaca/Iklim), Edafik (Tanah), Fisiografis (Bentuk Muka Bumi), dan Biotik (Makhluk Hidup).<span class="hidden">[cite: 2]</span></p>
+        <!-- FORM IDENTITAS SISWA -->
+        <section id="identitas" class="bg-custom-yellow p-6 sm:p-8 rounded-3xl border-8 border-custom-orange shadow-2xl text-black">
+            <h2 class="text-2xl sm:text-3xl font-black mb-6 flex items-center gap-3 border-b-4 border-black pb-3">
+                <i class="fa-solid fa-id-badge fa-bounce text-custom-purple text-4xl"></i>
+                IDENTITAS PESERTA DIDIK
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div>
+                    <label class="block font-black text-sm uppercase tracking-wider mb-2">Nama Lengkap Siswa:</label>
+                    <input type="text" id="namaSiswa" placeholder="Ketik nama lengkap Anda..." class="w-full p-4 rounded-2xl bg-white border-4 border-custom-blue text-black font-extrabold text-base focus:outline-none focus:ring-4 focus:ring-purple-500 shadow-inner" required>
+                </div>
+                <div>
+                    <label class="block font-black text-sm uppercase tracking-wider mb-2">Kelas / No. Absen:</label>
+                    <input type="text" id="kelasSiswa" placeholder="Contoh: XI IPS 1 / 14" class="w-full p-4 rounded-2xl bg-white border-4 border-custom-blue text-black font-extrabold text-base focus:outline-none focus:ring-4 focus:ring-purple-500 shadow-inner" required>
+                </div>
+                <div>
+                    <label class="block font-black text-sm uppercase tracking-wider mb-2">Hari / Tanggal:</label>
+                    <input type="date" id="tanggalLKPD" class="w-full p-4 rounded-2xl bg-white border-4 border-custom-blue text-black font-extrabold text-base focus:outline-none focus:ring-4 focus:ring-purple-500 shadow-inner" required>
+                </div>
+            </div>
+        </section>
+
+        <!-- I. TUJUAN PEMBELAJARAN -->
+        <section id="tujuan" class="bg-custom-purple p-6 sm:p-10 rounded-3xl border-8 border-custom-lime shadow-2xl text-white">
+            <div class="flex items-center gap-4 mb-6 border-b-4 border-custom-lime pb-4">
+                <div class="w-14 h-14 rounded-2xl bg-custom-lime text-black flex items-center justify-center text-3xl font-black shadow-lg">
+                    <i class="fa-solid fa-bullseye fa-shake"></i>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest font-black text-lime-300">Bagian I</span>
+                    <h2 class="text-2xl sm:text-4xl font-black">TUJUAN PEMBELAJARAN</h2>
+                </div>
             </div>
 
-            <!-- Tabel ASCII Verbatim -->
-            <div class="bg-black text-custom-lime p-6 rounded-2xl mb-8 shadow-2xl overflow-x-auto font-mono text-sm md:text-base border-4 border-custom-yellow">
-<pre>╔═══════════════════════════════════════════════════════════════════════════╗
-║                   4 FAKTOR PENENTU SEBARAN MAKHLUK HIDUP                  ║
-╠═══════════════════════════════════════════════════════════════════════════╣
-║  1. KLIMATIK (Iklim)      ➔  Suhu, Hujan, Sinar Matahari, Angin           ║
-║  2. EDAFIK (Tanah)        ➔  Kesuburan, Tekstur Pasir/Lempung, Keasaman   ║
-║  3. FISIOGRAFIS (Lahan)   ➔  Tinggi Rendahnya Daerah, Kemiringan Lereng   ║
-║  4. BIOTIK (Makhluk Hidup)➔  Peran Manusia, Hewan Penyerbuk, Tumbuhan     ║
-╚═══════════════════════════════════════════════════════════════════════════╝<span class="hidden">[cite: 2]</span></pre>
+            <div class="bg-purple-950/70 p-6 rounded-2xl border-4 border-fuchsia-400 mb-6">
+                <h3 class="text-lg sm:text-xl font-black text-yellow-300 mb-2">
+                    <i class="fa-solid fa-star fa-beat text-custom-yellow me-2"></i>Tujuan Pembelajaran Utama (TP 2.1):
+                </h3>
+                <p class="text-base sm:text-lg font-bold leading-relaxed text-white">
+                    Menganalisis faktor-faktor edafik, klimatik, fisiografis, dan biotik yang memengaruhi dinamika serta pola persebaran flora dan fauna di dunia dan Indonesia (Mindful). <span class="cite-tag"></span>
+                </p>
             </div>
 
-            <!-- Bagian 1 -->
-            <div class="bg-custom-blue p-6 rounded-2xl mb-6 shadow-xl border-4 border-white text-white">
-                <h3 class="text-2xl font-black mb-3 border-b-2 border-white pb-2"><i class="fa-solid fa-cloud-sun-rain fa-shake text-custom-yellow"></i> 1. Faktor Klimatik (Suhu dan Cuaca)</h3>
-                <p class="mb-3 text-lg font-semibold">Faktor klimatik adalah kondisi udara di suatu wilayah. Makhluk hidup tidak bisa bertahan jika udara di sekitarnya terlalu panas, terlalu dingin, terlalu basah, atau terlalu kering bagi tubuh mereka.<span class="hidden">[cite: 2]</span></p>
-                <ul class="list-disc ml-6 space-y-3 text-lg font-medium">
-                    <li><strong>Suhu Udara:</strong> * Maksud: Derajat panas atau dinginnya tempat tinggal.<br>Contoh Dunia: Beruang kutub memiliki lapisan lemak tebal dan bulu rapat untuk menahan dingin Arktik; beruang ini mati kepanasan jika dipindahkan ke hutan tropis.<br>Contoh Indonesia: Tanaman teh membutuhkan udara sejuk ($15^\circ\text{C} - 25^\circ\text{C}$) di pegunungan, sedangkan pohon kelapa memerlukan udara panas pesisir pantai.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Sinar Matahari:</strong><br>Maksud: Sumber energi utama tumbuhan untuk membuat makanan (fotosintesis).<br>Contoh: Hutan hujan tropis di Kalimantan sangat lebat karena menerima matahari sepanjang tahun. Sebaliknya, lumut di kutub hanya tumbuh beberapa bulan saat matahari muncul.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Curah Hujan dan Kelembapan Udara:</strong><br>Maksud: Ketersediaan pasokan air dari langit dan uap air di udara.<br>Contoh: Hutan Sumatra basah dan dipenuhi pohon berdaun lebar. Sebaliknya, wilayah Nusa Tenggara Timur (NTT) curah hujannya rendah, sehingga yang tumbuh subur hanyalah padang rumput sabana tempat hidup kuda sandelwood.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Angin:</strong><br>Maksud: Udara yang bergerak membantu meniup spora, serbuk sari, dan biji-bijian agar tumbuhan berkembang biak ke tempat baru.<span class="hidden">[cite: 2]</span></li>
-                </ul>
+            <h4 class="text-lg font-black text-custom-lime mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-circle-check fa-fade"></i> Indikator Ketercapaian Tujuan Pembelajaran: <span class="cite-tag">[cite: 4]</span>
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white text-black p-5 rounded-2xl border-4 border-custom-yellow font-extrabold text-sm shadow-xl flex items-start gap-3">
+                    <span class="w-8 h-8 rounded-full bg-custom-purple text-white flex items-center justify-center shrink-0 font-black">1</span>
+                    <p>Peserta didik mampu menguraikan arti faktor klimatik, edafik, fisiografis, dan biotik secara lugas dan terukur. <span class="cite-tag">[cite: 4]</span></p>
+                </div>
+                <div class="bg-white text-black p-5 rounded-2xl border-4 border-custom-yellow font-extrabold text-sm shadow-xl flex items-start gap-3">
+                    <span class="w-8 h-8 rounded-full bg-custom-purple text-white flex items-center justify-center shrink-0 font-black">2</span>
+                    <p>Peserta didik mampu membedakan cara kerja masing-masing faktor dalam membatasi atau mendukung kehidupan makhluk hidup. <span class="cite-tag">[cite: 4]</span></p>
+                </div>
+                <div class="bg-white text-black p-5 rounded-2xl border-4 border-custom-yellow font-extrabold text-sm shadow-xl flex items-start gap-3">
+                    <span class="w-8 h-8 rounded-full bg-custom-purple text-white flex items-center justify-center shrink-0 font-black">3</span>
+                    <p>Peserta didik mampu menghubungkan kondisi fisik lingkungan dengan keberadaan jenis tumbuhan dan hewan di wilayah tertentu. <span class="cite-tag">[cite: 4]</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- II. PERTANYAAN PEMANTIK & PENJELASAN (INTERAKTIF ACCORDION) -->
+        <section id="pemantik" class="bg-custom-blue p-6 sm:p-10 rounded-3xl border-8 border-custom-yellow shadow-2xl text-white">
+            <div class="flex items-center gap-4 mb-6 border-b-4 border-custom-yellow pb-4">
+                <div class="w-14 h-14 rounded-2xl bg-custom-yellow text-black flex items-center justify-center text-3xl font-black shadow-lg">
+                    <i class="fa-solid fa-lightbulb fa-beat"></i>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest font-black text-yellow-300">Bagian II</span>
+                    <h2 class="text-2xl sm:text-4xl font-black">PERTANYAAN PEMANTIK DAN PENJELASANNYA</h2>
+                </div>
             </div>
 
-            <!-- Bagian 2 -->
-            <div class="bg-custom-orange p-6 rounded-2xl mb-6 shadow-xl border-4 border-black text-black">
-                <h3 class="text-2xl font-black mb-3 border-b-2 border-black pb-2"><i class="fa-solid fa-seedling fa-beat text-custom-darkgreen"></i> 2. Faktor Edafik (Keadaan Tanah)</h3>
-                <p class="mb-3 text-lg font-semibold">Tanah adalah "piring makan" bagi tumbuhan. Jika tanahnya tidak menyediakan makanan (unsur hara) atau tidak bisa menampung air, maka tumbuhan tidak dapat tumbuh, dan hewan pemakan tumbuhan ikut menghilang.<span class="hidden">[cite: 2]</span></p>
-                <ul class="list-disc ml-6 space-y-3 text-lg font-medium">
-                    <li><strong>Tekstur Tanah (Kerapatan Butiran Tanah):</strong><br>Tanah Pasir: Berbutir kasar dan tidak bisa mengikat air (air langsung lolos ke bawah). Tumbuhan yang hidup di sini wajib bisa menampung air sendiri, seperti kaktus di gurun atau pohon pandan laut di pesisir pantai.<br>Tanah Lempung/Aluvial: Berbutir halus, gembur, dan menahan air dengan baik. Wilayah ini menjadi lumbung padi dan palawija, contohnya dataran rendah Pulau Jawa.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Kesuburan Tanah (Unsur Hara):</strong><br>Wilayah dengan tanah vulkanik (hasil abu letusan gunung berapi) sangat kaya mineral hara, sehingga hutan di Jawa, Sumatra, dan Bali tumbuh sangat rimbun.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Keasaman Tanah (pH):</strong><br>Sebagian besar tanaman menyukai tanah netral. Pada lahan gambut di Riau yang tanahnya sangat asam, hanya tumbuhan khusus seperti kelapa sawit, pohon ramin, dan karet yang sanggup bertahan.<span class="hidden">[cite: 2]</span></li>
-                </ul>
+            <p class="text-slate-200 font-bold mb-6 text-base sm:text-lg">
+                Klik setiap kartu di bawah untuk membuka dan membaca analisis penjelasan mendalamnya secara interaktif:
+            </p>
+
+            <div class="space-y-5">
+                <!-- Pemantik 1 -->
+                <div class="bg-blue-950 p-6 rounded-2xl border-4 border-cyan-400 shadow-xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex items-start gap-3">
+                            <span class="px-3 py-1 rounded-xl bg-custom-yellow text-black font-black text-xs uppercase">No. 1</span>
+                            <h3 class="text-lg sm:text-xl font-black text-white">
+                                Mengapa pohon kelapa tumbuh subur di tepi pantai, tetapi mati jika ditanam di puncak gunung yang sangat dingin? <span class="cite-tag">[cite: 4]</span>
+                            </h3>
+                        </div>
+                        <button type="button" onclick="toggleAccordion('pemantik-ans-1', 'icon-p-1')" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-xs sm:text-sm flex items-center gap-2 transition-all shrink-0">
+                            <span>Buka Penjelasan</span>
+                            <i id="icon-p-1" class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                    </div>
+                    <div id="pemantik-ans-1" class="hidden mt-4 pt-4 border-t-2 border-cyan-800 bg-blue-900/60 p-4 rounded-xl text-yellow-200 text-base font-semibold leading-relaxed">
+                        <strong class="text-white block mb-1"><i class="fa-solid fa-circle-info text-cyan-300 me-2"></i>Penjelasan:</strong>
+                        Setiap tumbuhan memiliki batas ketahanan suhu tertentu. Pohon kelapa membutuhkan udara panas dan paparan sinar matahari penuh yang tersedia di wilayah pantai. Puncak gunung memiliki suhu udara yang sangat rendah sehingga membekukan cairan sel tumbuhan dan mematikan pohon kelapa. <span class="cite-tag">[cite: 4]</span>
+                    </div>
+                </div>
+
+                <!-- Pemantik 2 -->
+                <div class="bg-blue-950 p-6 rounded-2xl border-4 border-cyan-400 shadow-xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex items-start gap-3">
+                            <span class="px-3 py-1 rounded-xl bg-custom-lime text-black font-black text-xs uppercase">No. 2</span>
+                            <h3 class="text-lg sm:text-xl font-black text-white">
+                                Mengapa beruang kutub tidak dapat hidup bebas di hutan Kalimantan? <span class="cite-tag">[cite: 4]</span>
+                            </h3>
+                        </div>
+                        <button type="button" onclick="toggleAccordion('pemantik-ans-2', 'icon-p-2')" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-xs sm:text-sm flex items-center gap-2 transition-all shrink-0">
+                            <span>Buka Penjelasan</span>
+                            <i id="icon-p-2" class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                    </div>
+                    <div id="pemantik-ans-2" class="hidden mt-4 pt-4 border-t-2 border-cyan-800 bg-blue-900/60 p-4 rounded-xl text-lime-200 text-base font-semibold leading-relaxed">
+                        <strong class="text-white block mb-1"><i class="fa-solid fa-circle-info text-lime-300 me-2"></i>Penjelasan:</strong>
+                        Tubuh beruang kutub diciptakan khusus untuk wilayah beku dengan lapisan lemak tebal dan bulu yang sangat rapat. Jika dipindahkan ke hutan Kalimantan yang panas dan lembap, suhu tubuh beruang kutub akan melonjak sangat tinggi sehingga beruang kutub mati kepanasan. <span class="cite-tag">[cite: 4]</span>
+                    </div>
+                </div>
+
+                <!-- Pemantik 3 -->
+                <div class="bg-blue-950 p-6 rounded-2xl border-4 border-cyan-400 shadow-xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex items-start gap-3">
+                            <span class="px-3 py-1 rounded-xl bg-custom-orange text-black font-black text-xs uppercase">No. 3</span>
+                            <h3 class="text-lg sm:text-xl font-black text-white">
+                                Tanah adalah tempat tumbuhan berpijak, namun mengapa padi tumbuh subur di tanah lempung Pulau Jawa tetapi sulit tumbuh di tanah pasir pantai? <span class="cite-tag">[cite: 4]</span>
+                            </h3>
+                        </div>
+                        <button type="button" onclick="toggleAccordion('pemantik-ans-3', 'icon-p-3')" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-black text-xs sm:text-sm flex items-center gap-2 transition-all shrink-0">
+                            <span>Buka Penjelasan</span>
+                            <i id="icon-p-3" class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                    </div>
+                    <div id="pemantik-ans-3" class="hidden mt-4 pt-4 border-t-2 border-cyan-800 bg-blue-900/60 p-4 rounded-xl text-orange-200 text-base font-semibold leading-relaxed">
+                        <strong class="text-white block mb-1"><i class="fa-solid fa-circle-info text-orange-300 me-2"></i>Penjelasan:</strong>
+                        Tanah lempung memiliki butiran halus yang mampu menahan air dan menyimpan pupuk makanan bagi akar padi. Sebaliknya, tanah pasir berbutir sangat kasar sehingga air langsung mengalir hilang ke bawah tanpa sempat diserap oleh akar padi. <span class="cite-tag">[cite: 4]</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- III. MATERI PEMBELAJARAN LENGKAP -->
+        <section id="materi" class="space-y-10">
+            <!-- Header Materi -->
+            <div class="bg-custom-darkgreen p-6 sm:p-10 rounded-3xl border-8 border-custom-lime shadow-2xl text-white">
+                <div class="flex items-center gap-4 mb-6 border-b-4 border-custom-lime pb-4">
+                    <div class="w-14 h-14 rounded-2xl bg-custom-lime text-black flex items-center justify-center text-3xl font-black shadow-lg">
+                        <i class="fa-solid fa-tree fa-bounce"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest font-black text-lime-300">Bagian III</span>
+                        <h2 class="text-2xl sm:text-4xl font-black">MATERI PEMBELAJARAN UTAMA</h2>
+                    </div>
+                </div>
+
+                <div class="bg-black/30 p-6 rounded-2xl border-2 border-white/20 text-lg sm:text-xl font-bold leading-relaxed mb-8">
+                    Flora dan fauna di bumi tidak tinggal di sembarang tempat karena setiap makhluk hidup membutuhkan tempat tinggal yang cocok dengan kondisi fisiknya. Perbedaan tempat tinggal makhluk hidup ini dikendalikan oleh empat faktor utama: Klimatik, Edafik, Fisiografis, dan Biotik. <span class="cite-tag">[cite: 4]</span>
+                </div>
+
+                <!-- Tabel 4 Faktor Penentu -->
+                <h3 class="text-xl sm:text-2xl font-black text-custom-yellow mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-table-list fa-spin"></i> 4 Faktor Penentu Persebaran Makhluk Hidup: <span class="cite-tag">[cite: 4]</span>
+                </h3>
+                <div class="overflow-x-auto rounded-2xl border-4 border-custom-yellow shadow-xl mb-6">
+                    <table class="w-full text-left border-collapse bg-emerald-950 font-bold text-sm sm:text-base">
+                        <thead>
+                            <tr class="bg-custom-yellow text-black text-base sm:text-lg font-black border-b-4 border-emerald-800">
+                                <th class="p-4 border-r-2 border-black text-center w-16">No</th>
+                                <th class="p-4 border-r-2 border-black">Faktor Penentu <span class="cite-tag">[cite: 4]</span></th>
+                                <th class="p-4">Unsur Utama <span class="cite-tag">[cite: 4]</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-emerald-800">
+                            <tr class="hover:bg-emerald-900 transition-colors">
+                                <td class="p-4 text-center font-black text-custom-lime">1</td>
+                                <td class="p-4 font-black text-yellow-300 border-r-2 border-emerald-800">Klimatik (Iklim & Cuaca) <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 text-slate-100">Suhu udara, curah hujan, sinar matahari, dan angin. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                            <tr class="hover:bg-emerald-900 transition-colors">
+                                <td class="p-4 text-center font-black text-custom-lime">2</td>
+                                <td class="p-4 font-black text-yellow-300 border-r-2 border-emerald-800">Edafik (Tanah) <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 text-slate-100">Tingkat kesuburan, tekstur pasir atau lempung, dan keasaman tanah. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                            <tr class="hover:bg-emerald-900 transition-colors">
+                                <td class="p-4 text-center font-black text-custom-lime">3</td>
+                                <td class="p-4 font-black text-yellow-300 border-r-2 border-emerald-800">Fisiografis (Bentuk Lahan) <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 text-slate-100">Tinggi rendahnya dataran dan kemiringan lereng. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                            <tr class="hover:bg-emerald-900 transition-colors">
+                                <td class="p-4 text-center font-black text-custom-lime">4</td>
+                                <td class="p-4 font-black text-yellow-300 border-r-2 border-emerald-800">Biotik (Makhluk Hidup) <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 text-slate-100">Peran manusia, hewan penyerbuk, dan tanaman pelindung. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- Bagian 3 -->
-            <div class="bg-custom-darkgreen p-6 rounded-2xl mb-6 shadow-xl border-4 border-custom-lime text-white">
-                <h3 class="text-2xl font-black mb-3 border-b-2 border-custom-lime pb-2"><i class="fa-solid fa-mountain fa-fade text-custom-yellow"></i> 3. Faktor Fisiografis (Bentuk Permukaan Bumi)</h3>
-                <p class="mb-3 text-lg font-semibold">Fisiografis berhubungan dengan tinggi-rendahnya dataran dan curam-landainya permukaan bumi.<span class="hidden">[cite: 2]</span></p>
-                <ul class="list-disc ml-6 space-y-3 text-lg font-medium">
-                    <li><strong>Ketinggian Tempat (Elevasi):</strong><br>Setiap naik 100 meter dari permukaan laut, suhu udara turun sekitar $0,6^\circ\text{C}$. Semakin tinggi suatu tempat, udaranya semakin dingin.<br>Pola Tanaman Berdasarkan Tinggi Tempat:<br>0 – 650 meter (Panas): Padi, jagung, tebu, kelapa.<br>650 – 1.500 meter (Sedang): Kopi, teh, kina, sayur kubis, wortel.<br>1.500 – 2.500 meter (Sejuk): Hutan cemara dan pinus.<br>> 2.500 meter (Dingin): Bunga edelweiss dan lumut gunung.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Kemiringan Lereng:</strong><br>Lereng gunung yang sangat curam sulit ditempati pohon besar karena air hujan cepat mengikis lapisan tanah subur (erosi). Daerah landai menampung tanah lebih tebal sehingga vegetasi tumbuh lebih rapat.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Arah Hadap Lereng:</strong><br>Sisi gunung yang menghadap langsung ke arah sinar matahari dan angin laut yang membawa uap air akan memiliki hutan yang jauh lebih lebat dibanding lereng gunung di sisi sebaliknya.<span class="hidden">[cite: 2]</span></li>
-                </ul>
+            <!-- Sub 1: Faktor Klimatik -->
+            <div class="bg-gradient-to-br from-blue-900 to-indigo-950 p-6 sm:p-10 rounded-3xl border-8 border-custom-blue shadow-2xl text-white">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-custom-blue text-white flex items-center justify-center text-2xl font-black shadow-lg">1</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-cyan-300">
+                        <i class="fa-solid fa-cloud-sun-rain text-custom-yellow fa-shake me-2"></i>Faktor Klimatik (Suhu dan Cuaca) <span class="cite-tag">[cite: 4]</span>
+                    </h3>
+                </div>
+                <p class="text-lg font-bold text-slate-200 mb-6 leading-relaxed bg-blue-950/80 p-5 rounded-2xl border-2 border-cyan-400">
+                    Faktor klimatik adalah kondisi udara di suatu wilayah. Makhluk hidup tidak dapat bertahan jika udara di sekitarnya terlalu panas, terlalu dingin, terlalu basah, atau terlalu kering bagi tubuh mereka. <span class="cite-tag">[cite: 4]</span>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-blue-900/60 p-6 rounded-2xl border-2 border-cyan-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-yellow flex items-center gap-2">
+                            <i class="fa-solid fa-temperature-half fa-bounce text-custom-red"></i> Suhu Udara: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-slate-100 font-semibold">Suhu udara adalah derajat panas atau dinginnya tempat tinggal. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-slate-200 text-sm"><strong class="text-cyan-300">• Beruang kutub:</strong> memiliki lapisan lemak tebal dan bulu rapat untuk menahan dingin Arktik, sehingga beruang kutub mati kepanasan jika dipindahkan ke hutan tropis. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-slate-200 text-sm"><strong class="text-cyan-300">• Tanaman teh:</strong> membutuhkan udara sejuk di pegunungan, sedangkan pohon kelapa memerlukan udara panas pesisir pantai. <span class="cite-tag">[cite: 4]</span></p>
+                    </div>
+
+                    <div class="bg-blue-900/60 p-6 rounded-2xl border-2 border-cyan-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-yellow flex items-center gap-2">
+                            <i class="fa-solid fa-sun fa-spin text-custom-yellow"></i> Sinar Matahari: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-slate-100 font-semibold">Sinar matahari merupakan sumber energi utama bagi tumbuhan untuk memasak makanannya sendiri. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-slate-200 text-sm"><strong class="text-cyan-300">• Hutan hujan Kalimantan:</strong> tumbuh sangat lebat karena menerima pancaran sinar matahari sepanjang tahun. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-slate-200 text-sm"><strong class="text-cyan-300">• Tumbuhan lumut kutub:</strong> hanya mampu tumbuh selama beberapa bulan ketika sinar matahari muncul di musim panas. <span class="cite-tag">[cite: 4]</span></p>
+                    </div>
+
+                    <div class="bg-blue-900/60 p-6 rounded-2xl border-2 border-cyan-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-yellow flex items-center gap-2">
+                            <i class="fa-solid fa-cloud-showers-heavy fa-beat text-cyan-300"></i> Curah Hujan & Kelembapan Udara: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-slate-100 font-semibold">Curah hujan adalah ketersediaan pasokan air dari langit dan kandungan uap air di udara. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-slate-200 text-sm"><strong class="text-cyan-300">• Hutan Sumatra:</strong> bersuasana basah dan dipenuhi pohon-pohon berdaun lebar. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-slate-200 text-sm"><strong class="text-cyan-300">• Nusa Tenggara Timur (NTT):</strong> memiliki curah hujan rendah sehingga wilayah ini didominasi padang rumput sabana tempat hidup kuda sandelwood. <span class="cite-tag">[cite: 4]</span></p>
+                    </div>
+
+                    <div class="bg-blue-900/60 p-6 rounded-2xl border-2 border-cyan-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-yellow flex items-center gap-2">
+                            <i class="fa-solid fa-wind fa-fade text-slate-300"></i> Angin: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-slate-100 font-semibold leading-relaxed">
+                            Angin adalah udara bergerak yang membantu meniup spora, serbuk sari, dan biji-bijian agar tumbuhan dapat berkembang biak ke tempat baru. <span class="cite-tag">[cite: 4]</span>
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Bagian 4 -->
-            <div class="bg-custom-lime p-6 rounded-2xl mb-6 shadow-xl border-4 border-custom-darkgreen text-black">
-                <h3 class="text-2xl font-black mb-3 border-b-2 border-custom-darkgreen pb-2"><i class="fa-solid fa-paw fa-bounce text-custom-red"></i> 4. Faktor Biotik (Peran Makhluk Hidup)</h3>
-                <p class="mb-3 text-lg font-semibold">Penyebaran flora dan fauna juga ditentukan oleh makhluk hidup lain di sekitarnya. Faktor ini mencakup manusia, hewan, dan tumbuhan.<span class="hidden">[cite: 2]</span></p>
-                <ul class="list-disc ml-6 space-y-3 text-lg font-medium">
-                    <li><strong>Manusia (Faktor Paling Berpengaruh):</strong><br>Mengubah Peta Persebaran: Manusia membawa bibit kelapa sawit dari Afrika Barat ke Indonesia, sehingga kelapa sawit kini tersebar luas di Sumatra dan Kalimantan.<br>Merusak Rumah Alami: Penebangan hutan liar (deforestasi) membuat orangutan kehilangan tempat tinggal dan populasinya terancam punah.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Hewan:</strong><br>Berperan menyebarkan benih dan membantu penyerbukan. Burung memakan buah beri di satu pulau, lalu mengeluarkan bijinya lewat kotoran di pulau lain sehingga tanaman tersebut tumbuh di tempat baru.<span class="hidden">[cite: 2]</span></li>
-                    <li><strong>Tumbuhan:</strong><br>Pohon-pohon besar di hutan rimba bertindak sebagai pelindung bagi tanaman merambat dan jamur kecil di lantai hutan dari terik matahari langsung.<span class="hidden">[cite: 2]</span></li>
-                </ul>
+            <!-- Sub 2: Faktor Edafik -->
+            <div class="bg-gradient-to-br from-amber-600 via-orange-600 to-amber-700 p-6 sm:p-10 rounded-3xl border-8 border-custom-orange shadow-2xl text-black">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-black text-custom-yellow flex items-center justify-center text-2xl font-black shadow-lg">2</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white">
+                        <i class="fa-solid fa-seedling text-emerald-300 fa-bounce me-2"></i>Faktor Edafik (Keadaan Tanah) <span class="cite-tag">[cite: 4]</span>
+                    </h3>
+                </div>
+                <p class="text-lg font-bold text-amber-950 mb-6 leading-relaxed bg-amber-100 p-5 rounded-2xl border-2 border-amber-800 shadow-inner">
+                    Tanah berfungsi sebagai penyedia makanan bagi akar tumbuhan. Jika tanah tidak menyediakan makanan atau tidak mampu menampung air, maka tumbuhan tidak dapat hidup, dan hewan pemakan tumbuhan ikut menghilang dari wilayah tersebut. <span class="cite-tag">[cite: 4]</span>
+                </p>
+
+                <div class="space-y-4">
+                    <div class="bg-white p-6 rounded-2xl border-4 border-amber-800 shadow-lg">
+                        <h4 class="text-xl font-black text-orange-700 mb-2">Tekstur Tanah (Kerapatan Butiran Tanah): <span class="cite-tag">[cite: 4]</span></h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base font-semibold">
+                            <div class="bg-amber-50 p-4 rounded-xl border border-amber-300">
+                                <strong class="text-black block mb-1">• Tanah Pasir:</strong>
+                                Tanah pasir memiliki butiran yang kasar dan tidak dapat mengikat air karena air langsung meresap lolos ke bawah. Tumbuhan di tanah pasir wajib mampu menyimpan air di dalam batangnya sendiri, seperti tanaman kaktus di gurun atau pohon pandan laut di pantai. <span class="cite-tag">[cite: 4]</span>
+                            </div>
+                            <div class="bg-amber-50 p-4 rounded-xl border border-amber-300">
+                                <strong class="text-black block mb-1">• Tanah Lempung/Aluvial:</strong>
+                                Tanah lempung memiliki butiran halus, gembur, dan mampu menahan air dengan sangat baik. Wilayah tanah lempung menjadi lahan utama pertanian padi dan tanaman palawija di dataran rendah Pulau Jawa. <span class="cite-tag">[cite: 4]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-6 rounded-2xl border-4 border-amber-800 shadow-lg">
+                            <h4 class="text-xl font-black text-orange-700 mb-2">Kesuburan Tanah (Kandungan Unsur Hara): <span class="cite-tag">[cite: 4]</span></h4>
+                            <p class="font-semibold text-sm sm:text-base leading-relaxed">
+                                Wilayah dengan tanah vulkanik yang berasal dari abu letusan gunung berapi mengandung mineral hara yang sangat banyak. Hutan alami di Pulau Jawa, Sumatra, dan Bali tumbuh sangat rimbun akibat tanah vulkanis tersebut. <span class="cite-tag">[cite: 4]</span>
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border-4 border-amber-800 shadow-lg">
+                            <h4 class="text-xl font-black text-orange-700 mb-2">Keasaman Tanah (Nilai pH): <span class="cite-tag">[cite: 4]</span></h4>
+                            <p class="font-semibold text-sm sm:text-base leading-relaxed">
+                                Sebagian besar tanaman pangan membutuhkan tanah dengan tingkat keasaman netral. Lahan gambut di wilayah Riau memiliki tanah yang sangat asam, sehingga hanya tanaman khusus seperti kelapa sawit, pohon ramin, dan pohon karet yang sanggup bertahan hidup. <span class="cite-tag">[cite: 4]</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Tabel Perbandingan -->
-            <h3 class="text-2xl font-black text-white mb-4 mt-8 bg-black p-3 rounded-xl inline-block shadow-lg border-2 border-custom-yellow"><i class="fa-solid fa-table"></i> Perbandingan 4 Faktor Persebaran</h3>
-            <div class="overflow-x-auto bg-white rounded-2xl shadow-xl border-4 border-custom-red mb-6">
-                <table class="w-full text-left border-collapse min-w-max text-black font-semibold">
+            <!-- Sub 3: Faktor Fisiografis -->
+            <div class="bg-gradient-to-br from-emerald-800 via-teal-900 to-green-950 p-6 sm:p-10 rounded-3xl border-8 border-custom-lime shadow-2xl text-white">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-custom-lime text-black flex items-center justify-center text-2xl font-black shadow-lg">3</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-lime-300">
+                        <i class="fa-solid fa-mountain text-custom-yellow fa-shake me-2"></i>Faktor Fisiografis (Bentuk Permukaan Bumi) <span class="cite-tag">[cite: 4]</span>
+                    </h3>
+                </div>
+                <p class="text-lg font-bold text-emerald-100 mb-6 leading-relaxed bg-emerald-950/80 p-5 rounded-2xl border-2 border-emerald-400">
+                    Fisiografis berhubungan langsung dengan tinggi rendahnya dataran dan tingkat kecuraman permukaan tanah. <span class="cite-tag">[cite: 4]</span>
+                </p>
+
+                <div class="space-y-6">
+                    <div class="bg-emerald-900/60 p-6 rounded-2xl border-2 border-emerald-400">
+                        <h4 class="text-xl font-black text-custom-yellow mb-2">Ketinggian Tempat (Elevasi): <span class="cite-tag">[cite: 4]</span></h4>
+                        <p class="text-base font-semibold text-emerald-100 mb-4">
+                            Setiap kenaikan tempat setinggi 100 meter dari permukaan laut, suhu udara akan turun sekitar 0,6 derajat Celsius. Semakin tinggi letak suatu tempat, suhu udara di tempat tersebut menjadi semakin dingin. <span class="cite-tag">[cite: 4]</span>
+                        </p>
+                        <p class="font-extrabold text-lime-300 text-sm uppercase tracking-wider mb-3">Pola tanaman berdasarkan zona ketinggian: <span class="cite-tag">[cite: 4]</span></p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-black">
+                            <div class="bg-amber-200 p-4 rounded-xl border-2 border-amber-500">
+                                <span class="font-black text-xs uppercase px-2 py-1 bg-amber-500 text-white rounded">0 - 650 m</span>
+                                <h5 class="font-black mt-2 text-sm">Zona Panas:</h5>
+                                <p class="text-xs font-bold text-slate-800">Ditanami padi, jagung, tebu, dan kelapa. <span class="cite-tag">[cite: 4]</span></p>
+                            </div>
+                            <div class="bg-lime-200 p-4 rounded-xl border-2 border-lime-500">
+                                <span class="font-black text-xs uppercase px-2 py-1 bg-lime-600 text-white rounded">650 - 1.500 m</span>
+                                <h5 class="font-black mt-2 text-sm">Zona Sedang:</h5>
+                                <p class="text-xs font-bold text-slate-800">Ditanami kopi, teh, kina, sayur kubis, dan wortel. <span class="cite-tag">[cite: 4]</span></p>
+                            </div>
+                            <div class="bg-teal-200 p-4 rounded-xl border-2 border-teal-500">
+                                <span class="font-black text-xs uppercase px-2 py-1 bg-teal-600 text-white rounded">1.500 - 2.500 m</span>
+                                <h5 class="font-black mt-2 text-sm">Zona Sejuk:</h5>
+                                <p class="text-xs font-bold text-slate-800">Ditumbuhi hutan cemara dan hutan pinus. <span class="cite-tag">[cite: 4]</span></p>
+                            </div>
+                            <div class="bg-sky-200 p-4 rounded-xl border-2 border-sky-500">
+                                <span class="font-black text-xs uppercase px-2 py-1 bg-sky-600 text-white rounded">&gt; 2.500 m</span>
+                                <h5 class="font-black mt-2 text-sm">Zona Dingin:</h5>
+                                <p class="text-xs font-bold text-slate-800">Hanya ditumbuhi bunga edelweiss dan lumut gunung. <span class="cite-tag">[cite: 4]</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-emerald-900/60 p-6 rounded-2xl border-2 border-emerald-400">
+                            <h4 class="text-xl font-black text-custom-yellow mb-2">Kemiringan Lereng: <span class="cite-tag">[cite: 4]</span></h4>
+                            <p class="font-semibold text-sm sm:text-base leading-relaxed text-emerald-100">
+                                Lereng pegunungan yang sangat curam sulit ditumbuhi pepohonan besar karena aliran air hujan yang deras akan langsung mengikis lapisan tanah subur. Daerah lereng yang landai memiliki lapisan tanah yang lebih tebal sehingga vegetasi dapat tumbuh dengan rapat. <span class="cite-tag">[cite: 4]</span>
+                            </p>
+                        </div>
+                        <div class="bg-emerald-900/60 p-6 rounded-2xl border-2 border-emerald-400">
+                            <h4 class="text-xl font-black text-custom-yellow mb-2">Arah Hadap Lereng: <span class="cite-tag">[cite: 4]</span></h4>
+                            <p class="font-semibold text-sm sm:text-base leading-relaxed text-emerald-100">
+                                Sisi lereng gunung yang menghadap langsung ke arah pancaran matahari dan hembusan angin laut pembawa uap air memiliki hutan yang jauh lebih lebat. Sisi lereng gunung yang membelakangi arah angin memiliki kondisi udara kering dan vegetasi yang lebih jarang. <span class="cite-tag">[cite: 4]</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub 4: Faktor Biotik -->
+            <div class="bg-gradient-to-br from-fuchsia-800 via-purple-900 to-indigo-950 p-6 sm:p-10 rounded-3xl border-8 border-custom-purple shadow-2xl text-white">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-12 h-12 rounded-2xl bg-custom-purple text-white flex items-center justify-center text-2xl font-black shadow-lg">4</span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-fuchsia-300">
+                        <i class="fa-solid fa-paw text-custom-yellow fa-beat me-2"></i>Faktor Biotik (Peran Makhluk Hidup) <span class="cite-tag">[cite: 4]</span>
+                    </h3>
+                </div>
+                <p class="text-lg font-bold text-purple-100 mb-6 leading-relaxed bg-purple-950/80 p-5 rounded-2xl border-2 border-fuchsia-400">
+                    Penyebaran flora dan fauna juga ditentukan oleh aktivitas sesama makhluk hidup di alam. <span class="cite-tag">[cite: 4]</span>
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-purple-900/60 p-6 rounded-2xl border-2 border-fuchsia-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-lime flex items-center gap-2">
+                            <i class="fa-solid fa-person text-cyan-300 fa-bounce"></i> Peran Manusia: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-sm font-semibold text-slate-100">Manusia merupakan makhluk hidup yang paling aktif mengubah sebaran flora dan fauna di bumi. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-xs text-purple-200">• Manusia mendatangkan bibit tanaman kelapa sawit dari Afrika Barat ke Indonesia, sehingga kelapa sawit saat ini tumbuh tersebar di Sumatra dan Kalimantan. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-xs text-purple-200">• Penebangan hutan alam liar yang dilakukan manusia menyebabkan orangutan kehilangan tempat tinggal aslinya hingga populasinya terancam punah. <span class="cite-tag">[cite: 4]</span></p>
+                    </div>
+
+                    <div class="bg-purple-900/60 p-6 rounded-2xl border-2 border-fuchsia-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-lime flex items-center gap-2">
+                            <i class="fa-solid fa-dove text-yellow-300 fa-beat"></i> Peran Hewan: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-sm font-semibold text-slate-100">Hewan bertindak sebagai penyebar benih dan pembantu proses penyerbukan bunga. <span class="cite-tag">[cite: 4]</span></p>
+                        <p class="text-xs text-purple-200">• Burung memakan buah di satu pulau lalu membuang biji buah tersebut lewat kotorannya di pulau lain, sehingga tanaman baru dapat tumbuh di pulau tersebut. <span class="cite-tag">[cite: 4]</span></p>
+                    </div>
+
+                    <div class="bg-purple-900/60 p-6 rounded-2xl border-2 border-fuchsia-500 space-y-2">
+                        <h4 class="text-xl font-black text-custom-lime flex items-center gap-2">
+                            <i class="fa-solid fa-tree text-emerald-300 fa-fade"></i> Peran Tumbuhan: <span class="cite-tag">[cite: 4]</span>
+                        </h4>
+                        <p class="text-sm font-semibold text-slate-100 leading-relaxed">
+                            Pohon berukuran besar di hutan lebat berfungsi sebagai peneduh bagi tanaman merambat, lumut, dan jamur di lantai hutan dari terik matahari langsung. <span class="cite-tag">[cite: 4]</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sub 5: Tabel Rangkuman 4 Faktor Persebaran -->
+            <div class="bg-custom-red p-6 sm:p-10 rounded-3xl border-8 border-custom-yellow shadow-2xl text-white">
+                <div class="flex items-center gap-4 mb-6 border-b-4 border-custom-yellow pb-4">
+                    <div class="w-14 h-14 rounded-2xl bg-custom-yellow text-black flex items-center justify-center text-3xl font-black shadow-lg">
+                        <i class="fa-solid fa-table fa-flip"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest font-black text-yellow-300">Bagian 5</span>
+                        <h3 class="text-2xl sm:text-4xl font-black">Tabel Rangkuman 4 Faktor Persebaran <span class="cite-tag">[cite: 4]</span></h3>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border-4 border-black shadow-2xl mb-8">
+                    <table class="w-full text-left border-collapse bg-white text-black font-semibold text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-black text-custom-yellow text-sm sm:text-base font-black border-b-4 border-custom-yellow">
+                                <th class="p-4 border-r-2 border-custom-yellow">Faktor <span class="cite-tag">[cite: 4]</span></th>
+                                <th class="p-4 border-r-2 border-custom-yellow">Unsur Penentu <span class="cite-tag">[cite: 4]</span></th>
+                                <th class="p-4 border-r-2 border-custom-yellow">Cara Kerja <span class="cite-tag">[cite: 4]</span></th>
+                                <th class="p-4">Contoh Nyata <span class="cite-tag">[cite: 4]</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-gray-300">
+                            <tr class="bg-red-50 hover:bg-red-100">
+                                <td class="p-4 font-black text-red-700 border-r-2 border-gray-300 text-sm sm:text-base">Klimatik <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Suhu udara, hujan, sinar matahari, dan angin. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Menentukan kemampuan fisik makhluk hidup untuk bertahan pada cuaca tempat tinggalnya. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4">Unta bertahan di padang pasir yang panas; penguin bertahan di kutub beku. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                            <tr class="bg-amber-50 hover:bg-amber-100">
+                                <td class="p-4 font-black text-amber-800 border-r-2 border-gray-300 text-sm sm:text-base">Edafik <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Kesuburan tanah, tekstur tanah, dan keasaman tanah. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Menyediakan makanan, mineral hara, dan cadangan air bagi perakaran tanaman. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4">Tanah abu vulkanik menyuburkan tanaman padi; tanah gambut asam ditumbuhi pohon sawit. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                            <tr class="bg-emerald-50 hover:bg-emerald-100">
+                                <td class="p-4 font-black text-emerald-800 border-r-2 border-gray-300 text-sm sm:text-base">Fisiografis <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Ketinggian daerah dan kemiringan lereng. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Mengatur perubahan suhu udara dan ketebalan lapisan tanah di permukaan bumi. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4">Bunga edelweiss hanya tumbuh di gunung tinggi; kelapa tumbuh di dataran rendah pantai. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                            <tr class="bg-purple-50 hover:bg-purple-100">
+                                <td class="p-4 font-black text-purple-800 border-r-2 border-gray-300 text-sm sm:text-base">Biotik <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Manusia, satwa penyerbuk, dan mikroorganisme. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4 border-r-2 border-gray-300">Menyebarkan biji tanaman atau mengubah bentuk habitat alam. <span class="cite-tag">[cite: 4]</span></td>
+                                <td class="p-4">Manusia menyebarkan bibit tanaman kopi; lebah membantu penyerbukan tanaman buah. <span class="cite-tag">[cite: 4]</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-black/40 p-6 rounded-2xl border-2 border-white/40 text-base sm:text-lg font-bold leading-relaxed text-yellow-200">
+                    <i class="fa-solid fa-link text-custom-yellow fa-bounce me-2"></i>
+                    Keempat faktor ini bekerja bersamaan seperti sistem rantai yang tidak terputus. Jika iklim menyediakan hujan, tanah menyediakan zat hara, dan permukaan bumi aman dari erosi, maka tanaman akan tumbuh subur dan mengundang berbagai hewan untuk datang menetap di kawasan tersebut. <span class="cite-tag">[cite: 4]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- IV. LEMBAR KERJA PESERTA DIDIK (LKPD) -->
+        <form id="lkpdForm" onsubmit="event.preventDefault();" class="space-y-12">
+
+            <!-- BAGIAN A: 20 SOAL PILIHAN GANDA -->
+            <section id="lkpd-pg" class="bg-custom-blue p-6 sm:p-10 rounded-3xl border-8 border-custom-yellow shadow-2xl text-white">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6 border-b-4 border-custom-yellow pb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-custom-yellow text-black flex items-center justify-center text-3xl font-black shadow-lg">
+                            <i class="fa-solid fa-list-check fa-bounce"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest font-black text-yellow-300">Bagian A (Bobot: 50 Poin)</span>
+                            <h3 class="text-2xl sm:text-4xl font-black">20 SOAL PILIHAN GANDA</h3>
+                        </div>
+                    </div>
+                    <span class="bg-white text-blue-900 font-black px-4 py-2 rounded-xl text-xs sm:text-sm border-2 border-yellow-400">
+                        2,5 Poin / Soal
+                    </span>
+                </div>
+
+                <p class="text-cyan-200 font-bold mb-6 text-sm sm:text-base">
+                    Petunjuk: Berilah tanda centang/klik pada salah satu huruf A, B, C, D, atau E untuk jawaban yang paling tepat! <span class="cite-tag">[cite: 4]</span>
+                </p>
+
+                <div id="pg-container" class="space-y-6">
+                    <!-- Soal PG 1 sampai 20 dirender secara dinamis oleh JavaScript -->
+                </div>
+            </section>
+
+            <!-- BAGIAN B: 5 SOAL MENJODOHKAN -->
+            <section id="lkpd-jodoh" class="bg-custom-yellow p-6 sm:p-10 rounded-3xl border-8 border-custom-orange shadow-2xl text-black">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6 border-b-4 border-black pb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-black text-custom-yellow flex items-center justify-center text-3xl font-black shadow-lg">
+                            <i class="fa-solid fa-puzzle-piece fa-spin"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest font-black text-orange-800">Bagian B (Bobot: 20 Poin)</span>
+                            <h3 class="text-2xl sm:text-4xl font-black">5 SOAL MENJODOHKAN</h3>
+                        </div>
+                    </div>
+                    <span class="bg-black text-custom-yellow font-black px-4 py-2 rounded-xl text-xs sm:text-sm border-2 border-white">
+                        4 Poin / Soal
+                    </span>
+                </div>
+
+                <p class="text-amber-950 font-black mb-6 text-sm sm:text-base">
+                    Petunjuk: Pasangkanlah pernyataan pada Kolom Pertanyaan dengan konsep yang tepat pada Kolom Jawaban!
+                </p>
+
+                <div class="space-y-4">
+                    <!-- Jodoh 1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-2xl border-4 border-custom-orange shadow-md">
+                        <div class="font-extrabold text-sm sm:text-base text-slate-900">
+                            1. Suhu udara dingin di pegunungan menyebabkan pohon kelapa tidak berbuah.
+                        </div>
+                        <select id="jodoh1" class="p-3 bg-amber-50 border-4 border-custom-blue rounded-xl font-black text-sm text-black focus:outline-none">
+                            <option value="">-- Pilih Pasangan Konsep --</option>
+                            <option value="A">A. Pengaruh Faktor Edafik</option>
+                            <option value="B">B. Pengaruh Faktor Klimatik</option>
+                            <option value="C">C. Pengaruh Peran Tumbuhan (Biotik)</option>
+                            <option value="D">D. Pengaruh Ketinggian & Lereng (Fisiografis)</option>
+                            <option value="E">E. Pengaruh Aktivitas Manusia (Biotik)</option>
+                        </select>
+                    </div>
+
+                    <!-- Jodoh 2 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-2xl border-4 border-custom-orange shadow-md">
+                        <div class="font-extrabold text-sm sm:text-base text-slate-900">
+                            2. Tanah endapan lumpur sungai yang subur dimanfaatkan masyarakat untuk menanam padi.
+                        </div>
+                        <select id="jodoh2" class="p-3 bg-amber-50 border-4 border-custom-blue rounded-xl font-black text-sm text-black focus:outline-none">
+                            <option value="">-- Pilih Pasangan Konsep --</option>
+                            <option value="A">A. Pengaruh Faktor Edafik</option>
+                            <option value="B">B. Pengaruh Faktor Klimatik</option>
+                            <option value="C">C. Pengaruh Peran Tumbuhan (Biotik)</option>
+                            <option value="D">D. Pengaruh Ketinggian & Lereng (Fisiografis)</option>
+                            <option value="E">E. Pengaruh Aktivitas Manusia (Biotik)</option>
+                        </select>
+                    </div>
+
+                    <!-- Jodoh 3 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-2xl border-4 border-custom-orange shadow-md">
+                        <div class="font-extrabold text-sm sm:text-base text-slate-900">
+                            3. Sisi lereng gunung yang landai ditumbuhi pepohonan yang jauh lebih lebat daripada tebing curam.
+                        </div>
+                        <select id="jodoh3" class="p-3 bg-amber-50 border-4 border-custom-blue rounded-xl font-black text-sm text-black focus:outline-none">
+                            <option value="">-- Pilih Pasangan Konsep --</option>
+                            <option value="A">A. Pengaruh Faktor Edafik</option>
+                            <option value="B">B. Pengaruh Faktor Klimatik</option>
+                            <option value="C">C. Pengaruh Peran Tumbuhan (Biotik)</option>
+                            <option value="D">D. Pengaruh Ketinggian & Lereng (Fisiografis)</option>
+                            <option value="E">E. Pengaruh Aktivitas Manusia (Biotik)</option>
+                        </select>
+                    </div>
+
+                    <!-- Jodoh 4 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-2xl border-4 border-custom-orange shadow-md">
+                        <div class="font-extrabold text-sm sm:text-base text-slate-900">
+                            4. Penduduk membuka lahan hutan untuk dijadikan area perkebunan kelapa sawit skala besar.
+                        </div>
+                        <select id="jodoh4" class="p-3 bg-amber-50 border-4 border-custom-blue rounded-xl font-black text-sm text-black focus:outline-none">
+                            <option value="">-- Pilih Pasangan Konsep --</option>
+                            <option value="A">A. Pengaruh Faktor Edafik</option>
+                            <option value="B">B. Pengaruh Faktor Klimatik</option>
+                            <option value="C">C. Pengaruh Peran Tumbuhan (Biotik)</option>
+                            <option value="D">D. Pengaruh Ketinggian & Lereng (Fisiografis)</option>
+                            <option value="E">E. Pengaruh Aktivitas Manusia (Biotik)</option>
+                        </select>
+                    </div>
+
+                    <!-- Jodoh 5 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white p-5 rounded-2xl border-4 border-custom-orange shadow-md">
+                        <div class="font-extrabold text-sm sm:text-base text-slate-900">
+                            5. Pohon besar melindungi jamur kecil di lantai hutan dari sengatan terik sinar matahari langsung.
+                        </div>
+                        <select id="jodoh5" class="p-3 bg-amber-50 border-4 border-custom-blue rounded-xl font-black text-sm text-black focus:outline-none">
+                            <option value="">-- Pilih Pasangan Konsep --</option>
+                            <option value="A">A. Pengaruh Faktor Edafik</option>
+                            <option value="B">B. Pengaruh Faktor Klimatik</option>
+                            <option value="C">C. Pengaruh Peran Tumbuhan (Biotik)</option>
+                            <option value="D">D. Pengaruh Ketinggian & Lereng (Fisiografis)</option>
+                            <option value="E">E. Pengaruh Aktivitas Manusia (Biotik)</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BAGIAN C: 5 SOAL ESAI -->
+            <section id="lkpd-esai" class="bg-custom-lime p-6 sm:p-10 rounded-3xl border-8 border-custom-darkgreen shadow-2xl text-black">
+                <div class="flex items-center justify-between flex-wrap gap-4 mb-6 border-b-4 border-black pb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-black text-custom-lime flex items-center justify-center text-3xl font-black shadow-lg">
+                            <i class="fa-solid fa-pen-fancy fa-shake"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-widest font-black text-emerald-900">Bagian C (Bobot: 30 Poin)</span>
+                            <h3 class="text-2xl sm:text-4xl font-black">5 SOAL ESAI REFLEKTIF</h3>
+                        </div>
+                    </div>
+                    <span class="bg-black text-custom-lime font-black px-4 py-2 rounded-xl text-xs sm:text-sm border-2 border-white">
+                        6 Poin / Soal
+                    </span>
+                </div>
+
+                <p class="text-emerald-950 font-black mb-6 text-sm sm:text-base">
+                    Petunjuk: Jawablah pertanyaan-pertanyaan berikut dengan kalimat yang lugas, tegas, dan jelas!
+                </p>
+
+                <div class="space-y-6">
+                    <div class="bg-white p-5 rounded-2xl border-4 border-custom-darkgreen shadow-lg">
+                        <label class="block font-black text-base text-slate-900 mb-2">
+                            1. Jelaskan mengapa faktor iklim (klimatik) disebut sebagai faktor utama penentu persebaran tumbuhan di muka bumi!
+                        </label>
+                        <textarea id="esai1" rows="3" placeholder="Ketik jawaban lengkap Anda di sini..." class="w-full p-4 bg-emerald-50 border-2 border-emerald-400 rounded-xl font-bold text-sm text-black focus:outline-none focus:ring-4 focus:ring-emerald-300"></textarea>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border-4 border-custom-darkgreen shadow-lg">
+                        <label class="block font-black text-base text-slate-900 mb-2">
+                            2. Jelaskan perbedaan nyata antara tanah pasir dan tanah lempung dalam kemampuannya menahan air bagi tanaman!
+                        </label>
+                        <textarea id="esai2" rows="3" placeholder="Ketik jawaban lengkap Anda di sini..." class="w-full p-4 bg-emerald-50 border-2 border-emerald-400 rounded-xl font-bold text-sm text-black focus:outline-none focus:ring-4 focus:ring-emerald-300"></textarea>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border-4 border-custom-darkgreen shadow-lg">
+                        <label class="block font-black text-base text-slate-900 mb-2">
+                            3. Sebutkan pembagian 4 zona ketinggian tanaman menurut Junghuhn beserta masing-masing 2 contoh tanamannya!
+                        </label>
+                        <textarea id="esai3" rows="3" placeholder="Ketik jawaban lengkap Anda di sini..." class="w-full p-4 bg-emerald-50 border-2 border-emerald-400 rounded-xl font-bold text-sm text-black focus:outline-none focus:ring-4 focus:ring-emerald-300"></textarea>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border-4 border-custom-darkgreen shadow-lg">
+                        <label class="block font-black text-base text-slate-900 mb-2">
+                            4. Berikan satu contoh tindakan manusia yang memperluas persebaran suatu flora dan satu contoh tindakan manusia yang merusak habitat fauna!
+                        </label>
+                        <textarea id="esai4" rows="3" placeholder="Ketik jawaban lengkap Anda di sini..." class="w-full p-4 bg-emerald-50 border-2 border-emerald-400 rounded-xl font-bold text-sm text-black focus:outline-none focus:ring-4 focus:ring-emerald-300"></textarea>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border-4 border-custom-darkgreen shadow-lg">
+                        <label class="block font-black text-base text-slate-900 mb-2">
+                            5. Jelaskan mengapa satu faktor lingkungan yang rusak dapat mengakibatkan hilangnya hewan dan tumbuhan di wilayah tersebut!
+                        </label>
+                        <textarea id="esai5" rows="3" placeholder="Ketik jawaban lengkap Anda di sini..." class="w-full p-4 bg-emerald-50 border-2 border-emerald-400 rounded-xl font-bold text-sm text-black focus:outline-none focus:ring-4 focus:ring-emerald-300"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KALKULASI NILAI & KIRIM NILAI KE WA -->
+            <section id="kirim-nilai" class="bg-gradient-to-r from-orange-500 via-red-600 to-rose-600 p-8 sm:p-12 rounded-3xl border-8 border-custom-yellow shadow-2xl text-center text-white">
+                <div class="w-20 h-20 mx-auto rounded-3xl bg-custom-yellow text-black flex items-center justify-center text-4xl font-black shadow-2xl mb-6">
+                    <i class="fa-solid fa-calculator fa-beat"></i>
+                </div>
+                <h3 class="text-3xl sm:text-5xl font-black mb-3">HITUNG & KIRIM SKOR LKPD</h3>
+                <p class="text-yellow-200 font-extrabold text-base sm:text-lg max-w-2xl mx-auto mb-6">
+                    Sistem akan mengoreksi otomatis Skor Objektif (PG: maks 50 + Menjodohkan: maks 20 = total 70). Jawaban 5 Soal Esai (maks 30) akan terlampir otomatis untuk diperiksa oleh guru di WhatsApp.
+                </p>
+
+                <div id="hasilSkorBox" class="hidden max-w-md mx-auto bg-black/50 p-6 rounded-2xl border-4 border-custom-yellow mb-8">
+                    <h4 class="text-yellow-300 font-black text-xl mb-2">RANGKUMAN SKOR ANDA:</h4>
+                    <p class="text-lg font-bold">Skor Pilihan Ganda: <span id="skorPGText" class="text-cyan-300 font-black">0</span> / 50</p>
+                    <p class="text-lg font-bold">Skor Menjodohkan: <span id="skorJodohText" class="text-custom-lime font-black">0</span> / 20</p>
+                    <p class="text-xl font-black mt-2 pt-2 border-t border-white/30 text-white">
+                        Total Skor Objektif: <span id="skorTotalText" class="text-yellow-300 text-2xl font-black">0</span> / 70
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button type="button" onclick="hitungSkor()" class="px-8 py-5 rounded-2xl bg-custom-yellow hover:bg-yellow-300 text-black font-black text-lg shadow-xl hover:scale-105 transition-all">
+                        <i class="fa-solid fa-check-to-slot me-2"></i> Hitung Skor Saya Sekarang
+                    </button>
+                    <button type="button" onclick="kirimSkorKeWA()" class="px-8 py-5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black font-black text-lg shadow-xl hover:scale-105 transition-all border-4 border-white">
+                        <i class="fa-brands fa-whatsapp text-2xl me-2"></i> Kirim Nilai ke WhatsApp Guru
+                    </button>
+                </div>
+            </section>
+        </form>
+
+        <!-- VI. RUBRIK REFLEKSI PESERTA DIDIK -->
+        <section id="refleksi" class="bg-custom-purple p-6 sm:p-10 rounded-3xl border-8 border-custom-yellow shadow-2xl text-white">
+            <div class="flex items-center gap-4 mb-6 border-b-4 border-custom-yellow pb-4">
+                <div class="w-14 h-14 rounded-2xl bg-custom-yellow text-black flex items-center justify-center text-3xl font-black shadow-lg">
+                    <i class="fa-solid fa-heart fa-beat text-custom-red"></i>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest font-black text-yellow-300">Bagian VI</span>
+                    <h3 class="text-2xl sm:text-4xl font-black">RUBRIK REFLEKSI PESERTA DIDIK</h3>
+                </div>
+            </div>
+
+            <p class="text-fuchsia-200 font-bold mb-6 text-sm sm:text-base">
+                Petunjuk: Isilah tabel refleksi diri berikut ini dengan memilih tingkat pemahaman Anda secara jujur, lalu jawablah pertanyaan singkat di bagian bawah!
+            </p>
+
+            <!-- Tabel Checklist Refleksi -->
+            <div class="overflow-x-auto rounded-2xl border-4 border-custom-yellow shadow-xl mb-8">
+                <table class="w-full text-left border-collapse bg-purple-950 text-white font-bold text-xs sm:text-sm">
                     <thead>
-                        <tr class="bg-custom-red text-white text-lg">
-                            <th class="p-4 border-r-2 border-white">Faktor</th>
-                            <th class="p-4 border-r-2 border-white">Unsur Penentu</th>
-                            <th class="p-4 border-r-2 border-white">Cara Kerja</th>
-                            <th class="p-4">Contoh Nyata</th>
+                        <tr class="bg-custom-yellow text-black font-black text-sm sm:text-base border-b-4 border-purple-800">
+                            <th class="p-4 border-r-2 border-black text-center w-12">No</th>
+                            <th class="p-4 border-r-2 border-black">Pernyataan Refleksi Diri</th>
+                            <th class="p-4 border-r-2 border-black text-center">Sangat Paham</th>
+                            <th class="p-4 border-r-2 border-black text-center">Paham Sebagian</th>
+                            <th class="p-4 text-center">Belum Paham</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-pink-100 hover:bg-pink-200 border-b-2 border-custom-red">
-                            <td class="p-4 border-r-2 border-custom-red">Klimatik</td>
-                            <td class="p-4 border-r-2 border-custom-red">Suhu, hujan, matahari, angin</td>
-                            <td class="p-4 border-r-2 border-custom-red">Menentukan apakah fisik makhluk hidup sanggup bertahan pada cuaca setempat.</td>
-                            <td class="p-4">Unta hidup di gurun panas berpasir; pinguin hidup di kutub beku.<span class="hidden">[cite: 2]</span></td>
+                    <tbody class="divide-y-2 divide-purple-800">
+                        <tr>
+                            <td class="p-4 text-center font-black text-custom-lime">1</td>
+                            <td class="p-4 border-r-2 border-purple-800">Saya mampu membedakan faktor klimatik, edafik, fisiografis, dan biotik.</td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref1" value="Sangat Paham" class="w-5 h-5 accent-custom-yellow" checked></td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref1" value="Paham Sebagian" class="w-5 h-5 accent-custom-yellow"></td>
+                            <td class="p-4 text-center"><input type="radio" name="ref1" value="Belum Paham" class="w-5 h-5 accent-custom-yellow"></td>
                         </tr>
-                        <tr class="bg-pink-50 hover:bg-pink-200 border-b-2 border-custom-red">
-                            <td class="p-4 border-r-2 border-custom-red">Edafik</td>
-                            <td class="p-4 border-r-2 border-custom-red">Kesuburan, tekstur pasir/lempung, asam tanah</td>
-                            <td class="p-4 border-r-2 border-custom-red">Menyediakan makanan, zat hara, dan air bagi akar tanaman.</td>
-                            <td class="p-4">Tanah vulkanis Jawa menyuburkan padi; tanah gambut Riau ditumbuhi pohon sawit.<span class="hidden">[cite: 2]</span></td>
+                        <tr>
+                            <td class="p-4 text-center font-black text-custom-lime">2</td>
+                            <td class="p-4 border-r-2 border-purple-800">Saya mengerti mengapa jenis tanaman berbeda-beda di tiap ketinggian tempat.</td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref2" value="Sangat Paham" class="w-5 h-5 accent-custom-yellow" checked></td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref2" value="Paham Sebagian" class="w-5 h-5 accent-custom-yellow"></td>
+                            <td class="p-4 text-center"><input type="radio" name="ref2" value="Belum Paham" class="w-5 h-5 accent-custom-yellow"></td>
                         </tr>
-                        <tr class="bg-pink-100 hover:bg-pink-200 border-b-2 border-custom-red">
-                            <td class="p-4 border-r-2 border-custom-red">Fisiografis</td>
-                            <td class="p-4 border-r-2 border-custom-red">Ketinggian bukit/gunung, kemiringan lereng</td>
-                            <td class="p-4 border-r-2 border-custom-red">Mengatur perubahan suhu dingin-panas dan ketebalan lapisan tanah di lereng.</td>
-                            <td class="p-4">Bunga edelweiss hanya mekar di puncak gunung tinggi; kelapa hanya tumbuh di dataran rendah pantai.<span class="hidden">[cite: 2]</span></td>
+                        <tr>
+                            <td class="p-4 text-center font-black text-custom-lime">3</td>
+                            <td class="p-4 border-r-2 border-purple-800">Saya memahami pengaruh tekstur tanah terhadap ketersediaan air bagi tumbuhan.</td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref3" value="Sangat Paham" class="w-5 h-5 accent-custom-yellow" checked></td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref3" value="Paham Sebagian" class="w-5 h-5 accent-custom-yellow"></td>
+                            <td class="p-4 text-center"><input type="radio" name="ref3" value="Belum Paham" class="w-5 h-5 accent-custom-yellow"></td>
                         </tr>
-                        <tr class="bg-pink-50 hover:bg-pink-200">
-                            <td class="p-4 border-r-2 border-custom-red">Biotik</td>
-                            <td class="p-4 border-r-2 border-custom-red">Manusia, hewan penyerbuk, mikroorganisme</td>
-                            <td class="p-4 border-r-2 border-custom-red">Membantu penyebaran bibit atau justru menghancurkan habitat alami.</td>
-                            <td class="p-4">Manusia menyebarkan bibit kopi ke seluruh pulau; lebah membantu penyerbukan bunga buah.<span class="hidden">[cite: 2]</span></td>
+                        <tr>
+                            <td class="p-4 text-center font-black text-custom-lime">4</td>
+                            <td class="p-4 border-r-2 border-purple-800">Saya menyadari bahwa tindakan manusia sangat menentukan kelestarian hewan dan tumbuhan.</td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref4" value="Sangat Paham" class="w-5 h-5 accent-custom-yellow" checked></td>
+                            <td class="p-4 text-center border-r-2 border-purple-800"><input type="radio" name="ref4" value="Paham Sebagian" class="w-5 h-5 accent-custom-yellow"></td>
+                            <td class="p-4 text-center"><input type="radio" name="ref4" value="Belum Paham" class="w-5 h-5 accent-custom-yellow"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="bg-custom-yellow text-black p-6 rounded-2xl shadow-lg text-lg font-bold border-4 border-custom-orange">
-                <p>Keempat faktor ini bekerja bersamaan seperti sistem rantai. Jika faktor iklim menyediakan hujan yang cukup, faktor tanah menyediakan zat hara yang subur, dan faktor fisiografis menyediakan lahan yang aman dari erosi, maka tanaman akan tumbuh subur dan mengundang berbagai jenis hewan untuk datang menetap di kawasan tersebut.<span class="hidden">[cite: 2]</span></p>
+            <!-- Pertanyaan Refleksi Pribadi -->
+            <div class="space-y-5 mb-8">
+                <div class="bg-purple-900/60 p-5 rounded-2xl border-2 border-fuchsia-400">
+                    <label class="block font-black text-sm sm:text-base text-yellow-300 mb-2">
+                        1. Bagian materi mana yang paling menarik dan paling mudah Anda pahami hari ini?
+                    </label>
+                    <textarea id="refTanya1" rows="2" placeholder="Tuliskan refleksi Anda..." class="w-full p-4 rounded-xl bg-purple-950 border border-fuchsia-400 font-bold text-white text-sm focus:outline-none"></textarea>
+                </div>
+                <div class="bg-purple-900/60 p-5 rounded-2xl border-2 border-fuchsia-400">
+                    <label class="block font-black text-sm sm:text-base text-yellow-300 mb-2">
+                        2. Kendala apa yang Anda alami saat mengerjakan soal-soal latihan di atas?
+                    </label>
+                    <textarea id="refTanya2" rows="2" placeholder="Tuliskan kendala Anda..." class="w-full p-4 rounded-xl bg-purple-950 border border-fuchsia-400 font-bold text-white text-sm focus:outline-none"></textarea>
+                </div>
+                <div class="bg-purple-900/60 p-5 rounded-2xl border-2 border-fuchsia-400">
+                    <label class="block font-black text-sm sm:text-base text-yellow-300 mb-2">
+                        3. Aksi nyata apa yang ingin Anda lakukan di lingkungan tempat tinggal Anda untuk menjaga kelestarian flora dan fauna?
+                    </label>
+                    <textarea id="refTanya3" rows="2" placeholder="Tuliskan rencana aksi nyata Anda..." class="w-full p-4 rounded-xl bg-purple-950 border border-fuchsia-400 font-bold text-white text-sm focus:outline-none"></textarea>
+                </div>
             </div>
-        </section>
 
-        <form id="lkpdForm">
-            <!-- Pilihan Ganda -->
-            <section id="lkpd-pg" class="bg-custom-blue rounded-3xl shadow-2xl p-6 md:p-10 mb-10 border-8 border-white">
-                <h2 class="text-3xl font-black mb-6 text-white border-b-4 border-white pb-3"><i class="fa-solid fa-check-double fa-beat text-custom-yellow"></i> A. Pilihan Ganda (Pilih Jawaban Tepat)</h2>
-                <div class="space-y-6" id="pg-container">
-                    <!-- Soal digenerate via JS -->
-                </div>
-            </section>
-
-            <!-- Esai -->
-            <section id="lkpd-esai" class="bg-custom-lime rounded-3xl shadow-2xl p-6 md:p-10 mb-10 border-8 border-custom-darkgreen">
-                <h2 class="text-3xl font-black mb-6 text-black border-b-4 border-black pb-3"><i class="fa-solid fa-keyboard fa-fade text-custom-purple"></i> B. Soal Esai (Jawab Singkat & Jelas)</h2>
-                <div class="space-y-6">
-                    <div class="bg-white p-6 rounded-2xl border-4 border-custom-darkgreen shadow-xl">
-                        <p class="font-extrabold text-xl text-black">1. Jelaskan perbedaan antara flora dan fauna!</p>
-                        <textarea class="w-full mt-3 p-4 bg-gray-100 border-4 rounded-xl border-custom-lime text-black font-bold text-lg" rows="3"></textarea>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border-4 border-custom-darkgreen shadow-xl">
-                        <p class="font-extrabold text-xl text-black">2. Sebutkan 3 contoh faktor klimatik yang memengaruhi flora fauna!</p>
-                        <textarea class="w-full mt-3 p-4 bg-gray-100 border-4 rounded-xl border-custom-lime text-black font-bold text-lg" rows="3"></textarea>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border-4 border-custom-darkgreen shadow-xl">
-                        <p class="font-extrabold text-xl text-black">3. Apa yang dimaksud dengan faktor edafik?</p>
-                        <textarea class="w-full mt-3 p-4 bg-gray-100 border-4 rounded-xl border-custom-lime text-black font-bold text-lg" rows="3"></textarea>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border-4 border-custom-darkgreen shadow-xl">
-                        <p class="font-extrabold text-xl text-black">4. Jelaskan batas Garis Wallace dan Weber di Indonesia!</p>
-                        <textarea class="w-full mt-3 p-4 bg-gray-100 border-4 rounded-xl border-custom-lime text-black font-bold text-lg" rows="3"></textarea>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border-4 border-custom-darkgreen shadow-xl">
-                        <p class="font-extrabold text-xl text-black">5. Berikan contoh fauna tipe Asiatis dan Australis!</p>
-                        <textarea class="w-full mt-3 p-4 bg-gray-100 border-4 rounded-xl border-custom-lime text-black font-bold text-lg" rows="3"></textarea>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Menjodohkan -->
-            <section id="lkpd-jodoh" class="bg-custom-yellow rounded-3xl shadow-2xl p-6 md:p-10 mb-10 border-8 border-custom-purple">
-                <h2 class="text-3xl font-black mb-6 text-black border-b-4 border-black pb-3"><i class="fa-solid fa-puzzle-piece fa-spin text-custom-red"></i> C. Menggabungkan (Pilih Pasangan Tepat)</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                    <div class="bg-custom-orange p-6 rounded-2xl border-4 border-black font-black text-xl text-black shadow-xl">1. Faktor Suhu dan Curah Hujan</div>
-                    <select id="jodoh1" class="p-5 border-4 border-custom-blue rounded-2xl bg-white text-black font-extrabold text-xl shadow-xl cursor-pointer">
-                        <option value="">-- Pilih Jawaban --</option>
-                        <option value="A">A. Garis Weber</option>
-                        <option value="B">B. Faktor Klimatik</option>
-                        <option value="C">C. Faktor Edafik</option>
-                        <option value="D">D. Fauna Australis</option>
-                        <option value="E">E. Fauna Peralihan</option>
-                    </select>
-                    
-                    <div class="bg-custom-orange p-6 rounded-2xl border-4 border-black font-black text-xl text-black shadow-xl">2. Kondisi dan Jenis Tanah</div>
-                    <select id="jodoh2" class="p-5 border-4 border-custom-blue rounded-2xl bg-white text-black font-extrabold text-xl shadow-xl cursor-pointer">
-                        <option value="">-- Pilih Jawaban --</option>
-                        <option value="A">A. Garis Weber</option>
-                        <option value="B">B. Faktor Klimatik</option>
-                        <option value="C">C. Faktor Edafik</option>
-                        <option value="D">D. Fauna Australis</option>
-                        <option value="E">E. Fauna Peralihan</option>
-                    </select>
-                    
-                    <div class="bg-custom-orange p-6 rounded-2xl border-4 border-black font-black text-xl text-black shadow-xl">3. Kanguru dan Burung Cenderawasih</div>
-                    <select id="jodoh3" class="p-5 border-4 border-custom-blue rounded-2xl bg-white text-black font-extrabold text-xl shadow-xl cursor-pointer">
-                        <option value="">-- Pilih Jawaban --</option>
-                        <option value="A">A. Garis Weber</option>
-                        <option value="B">B. Faktor Klimatik</option>
-                        <option value="C">C. Faktor Edafik</option>
-                        <option value="D">D. Fauna Australis</option>
-                        <option value="E">E. Fauna Peralihan</option>
-                    </select>
-                    
-                    <div class="bg-custom-orange p-6 rounded-2xl border-4 border-black font-black text-xl text-black shadow-xl">4. Komodo, Anoa, dan Babi Rusa</div>
-                    <select id="jodoh4" class="p-5 border-4 border-custom-blue rounded-2xl bg-white text-black font-extrabold text-xl shadow-xl cursor-pointer">
-                        <option value="">-- Pilih Jawaban --</option>
-                        <option value="A">A. Garis Weber</option>
-                        <option value="B">B. Faktor Klimatik</option>
-                        <option value="C">C. Faktor Edafik</option>
-                        <option value="D">D. Fauna Australis</option>
-                        <option value="E">E. Fauna Peralihan</option>
-                    </select>
-                    
-                    <div class="bg-custom-orange p-6 rounded-2xl border-4 border-black font-black text-xl text-black shadow-xl">5. Pembatas Fauna Peralihan & Australis</div>
-                    <select id="jodoh5" class="p-5 border-4 border-custom-blue rounded-2xl bg-white text-black font-extrabold text-xl shadow-xl cursor-pointer">
-                        <option value="">-- Pilih Jawaban --</option>
-                        <option value="A">A. Garis Weber</option>
-                        <option value="B">B. Faktor Klimatik</option>
-                        <option value="C">C. Faktor Edafik</option>
-                        <option value="D">D. Fauna Australis</option>
-                        <option value="E">E. Fauna Peralihan</option>
-                    </select>
-                </div>
-            </section>
-
-            <!-- Hitung dan Kirim Nilai -->
-            <section id="kirim-nilai" class="bg-custom-orange rounded-3xl shadow-2xl p-10 mb-10 text-center border-8 border-black">
-                <h2 class="text-4xl font-black mb-4 text-black"><i class="fa-solid fa-calculator fa-shake text-custom-red"></i> Kalkulasi & Kirim Skor LKPD</h2>
-                <p class="mb-8 text-black font-extrabold text-xl bg-white inline-block p-5 rounded-2xl border-4 border-custom-blue shadow-lg">Sistem akan menghitung Skor Objektif (Pilihan Ganda & Gabungan = Maks. 100). Soal Esai akan diperiksa manual oleh guru.</p>
-                <br>
-                <button type="button" onclick="kirimSkorWA()" class="bg-custom-red hover:bg-red-800 text-white text-3xl font-black py-6 px-14 rounded-full shadow-2xl transform transition hover:scale-110 border-4 border-white">
-                    <i class="fa-brands fa-whatsapp fa-beat"></i> Hitung & Kirim Nilai ke WA
-                </button>
-            </section>
-        </form>
-
-        <!-- Refleksi -->
-        <section id="refleksi" class="bg-custom-red rounded-3xl shadow-2xl p-6 md:p-10 border-8 border-custom-yellow">
-            <h2 class="text-3xl font-black mb-4 text-white border-b-4 border-white pb-4"><i class="fa-solid fa-lightbulb fa-beat text-custom-yellow"></i> Refleksi Pembelajaran (Wajib)</h2>
-            <p class="mb-4 text-white font-bold text-xl">Apa yang Anda pelajari hari ini? Kesulitan apa yang Anda hadapi?</p>
-            <textarea id="isiRefleksi" class="w-full mt-2 p-6 bg-white border-4 rounded-2xl border-custom-blue focus:border-custom-purple mb-8 text-xl font-bold text-black shadow-inner" rows="6" placeholder="Tuliskan refleksi Anda di sini..."></textarea>
-            
             <div class="text-center">
-                <button type="button" onclick="kirimRefleksiWA()" class="bg-custom-purple hover:bg-purple-900 text-white text-3xl font-black py-6 px-14 rounded-full shadow-2xl transform transition hover:scale-110 border-4 border-white">
-                    <i class="fa-brands fa-whatsapp fa-bounce text-custom-lime"></i> Kirim Refleksi ke WA
+                <button type="button" onclick="kirimRefleksiKeWA()" class="px-10 py-5 rounded-2xl bg-custom-lime hover:bg-lime-400 text-black font-black text-xl shadow-2xl hover:scale-105 transition-all border-4 border-white">
+                    <i class="fa-brands fa-whatsapp text-3xl me-2"></i> Kirim Refleksi Siswa ke WA
                 </button>
             </div>
         </section>
 
-    </div>
+    </main>
 
-    <!-- JS Logic -->
+    <!-- FOOTER -->
+    <footer class="bg-black py-8 border-t-4 border-custom-yellow text-center text-slate-400 text-xs sm:text-sm">
+        <p class="font-bold text-slate-300">Modul Pembelajaran Geografi Kelas XI (Fase F) • Deep Learning Curriculum</p>
+        <p class="mt-1">Dibuat untuk Pengayaan Belajar Interaktif, Terukur, dan Mandiri</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIKA, SOAL, DAN INTEGRASI WA -->
     <script>
-        const soalPG = [
-            "Faktor cuaca dan iklim yang memengaruhi sebaran flora dan fauna disebut...",
-            "Jenis tanah dan tingkat kesuburannya termasuk dalam faktor...",
-            "Relief atau bentuk permukaan bumi, seperti pegunungan, diklasifikasikan sebagai faktor...",
-            "Manusia, hewan, dan tumbuhan yang membantu persebaran biji termasuk faktor...",
-            "Hutan hujan tropis di Indonesia didukung oleh curah hujan yang...",
-            "Garis yang memisahkan fauna Asiatis dan fauna Peralihan adalah...",
-            "Garis yang memisahkan fauna Peralihan dan Australis adalah...",
-            "Harimau dan badak bercula satu merupakan contoh fauna tipe...",
-            "Burung Cenderawasih dan Kasuari adalah endemik zona...",
-            "Fauna endemik Indonesia yang terdapat di wilayah peralihan adalah...",
-            "Pohon jati yang menggugurkan daun pada musim kemarau banyak terdapat di...",
-            "Bioma padang rumput yang luas tanpa diselingi pepohonan disebut...",
-            "Padang rumput yang diselingi semak atau pohon-pohon kecil dinamakan...",
-            "Flora endemik khas Pulau Sumatera dengan bunga raksasa adalah...",
-            "Pohon sagu dan matoa merupakan karakteristik flora wilayah...",
-            "Berikut yang BUKAN merupakan unsur faktor klimatik adalah...",
-            "Adaptasi tumbuhan di daerah gurun (xerofit) umumnya berdaun...",
-            "Curah hujan minim dan suhu ekstrem memicu terbentuknya bioma...",
-            "Fauna peralihan seperti babi rusa banyak ditemukan di pulau...",
-            "Faktor biotik yang paling besar mengubah habitat flora fauna saat ini adalah..."
-        ];
-
-        const opsiPG = [
-            ["A. Klimatik", "B. Edafik", "C. Fisiografis", "D. Biotik", "E. Geologis"],
-            ["A. Fisiografis", "B. Klimatik", "C. Topografi", "D. Edafik", "E. Geografis"],
-            ["A. Edafik", "B. Klimatik", "C. Fisiografis", "D. Biotik", "E. Geologis"],
-            ["A. Edafik", "B. Biotik", "C. Klimatik", "D. Astronomis", "E. Fisiografis"],
-            ["A. Rendah", "B. Fluktuatif", "C. Sedang", "D. Tinggi", "E. Sangat rendah"],
-            ["A. Wallace", "B. Weber", "C. Khatulistiwa", "D. Lintang", "E. Lydekker"],
-            ["A. Lydekker", "B. Wallace", "C. Khatulistiwa", "D. Weber", "E. Bujur"],
-            ["A. Australis", "B. Asiatis", "C. Peralihan", "D. Endemik", "E. Eropa"],
-            ["A. Peralihan", "B. Asiatis", "C. Australis", "D. Barat", "E. Tengah"],
-            ["A. Orang utan", "B. Gajah", "C. Komodo", "D. Harimau", "E. Kanguru"],
-            ["A. Papua", "B. Hutan Hujan", "C. Hutan Musim", "D. Sabana", "E. Tundra"],
-            ["A. Tundra", "B. Taiga", "C. Hutan Gugur", "D. Stepa", "E. Sabana"],
-            ["A. Stepa", "B. Tundra", "C. Taiga", "D. Sabana", "E. Hutan Hujan"],
-            ["A. Anggrek Hitam", "B. Rafflesia arnoldii", "C. Pohon Jati", "D. Eboni", "E. Kayu Cendana"],
-            ["A. Indonesia Barat", "B. Indonesia Tengah", "C. Indonesia Timur", "D. Sumatera", "E. Jawa"],
-            ["A. Suhu Udara", "B. Kelembapan", "C. Jenis Batuan", "D. Angin", "E. Curah Hujan"],
-            ["A. Lebar", "B. Kecil / Duri", "C. Tipis", "D. Lebat", "E. Gugur"],
-            ["A. Gurun", "B. Hutan Tropis", "C. Tundra", "D. Taiga", "E. Hutan Gugur"],
-            ["A. Sumatera", "B. Jawa", "C. Kalimantan", "D. Sulawesi", "E. Papua"],
-            ["A. Cacing Tanah", "B. Bakteri", "C. Angin", "D. Burung", "E. Manusia"]
-        ];
-
-        const kunciPG = [0, 3, 2, 1, 3, 0, 3, 1, 2, 2, 2, 3, 3, 1, 2, 2, 1, 0, 3, 4];
-        const kunciJodoh = ["B", "C", "D", "E", "A"];
-
-        const pgContainer = document.getElementById('pg-container');
-        let pgHTML = "";
-        for(let i=0; i<20; i++){
-            pgHTML += `
-            <div class="bg-white p-6 rounded-2xl shadow-xl border-4 border-custom-lime">
-                <p class="font-extrabold text-2xl mb-4 text-black">${i+1}. ${soalPG[i]}</p>
-                <div class="space-y-3 ml-2 md:ml-4">`;
-            for(let j=0; j<5; j++){
-                pgHTML += `
-                    <label class="flex items-center space-x-4 cursor-pointer p-4 bg-gray-100 hover:bg-custom-purple hover:text-white rounded-xl transition font-bold text-black border-4 border-transparent hover:border-custom-yellow">
-                        <input type="radio" name="pg${i}" value="${j}" class="form-radio text-custom-blue w-6 h-6">
-                        <span class="text-xl">${opsiPG[i][j]}</span>
-                    </label>`;
+        // 20 Soal Pilihan Ganda Persis Sesuai Dokumen
+        const dataPG = [
+            {
+                q: "Faktor lingkungan yang berkaitan dengan keadaan suhu, kelembapan udara, dan curah hujan disebut...",
+                options: ["Faktor edafik", "Faktor klimatik", "Faktor fisiografis", "Faktor biotik", "Faktor geomorfologis"],
+                key: 1
+            },
+            {
+                q: "Keadaan tanah, tingkat kegemburan, dan kandungan zat hara termasuk dalam kelompok faktor...",
+                options: ["Fisiografis", "Klimatik", "Edafik", "Orografis", "Biotik"],
+                key: 2
+            },
+            {
+                q: "Perbedaan jenis tanaman akibat tinggi rendahnya permukaan bumi dari permukaan laut merupakan contoh pengaruh faktor...",
+                options: ["Klimatik", "Edafik", "Fisiografis", "Biotik", "Geologis"],
+                key: 2
+            },
+            {
+                q: "Burung membantu menyebarkan biji buah ke pulau lain melalui kotorannya. Hal ini menunjukkan pengaruh faktor...",
+                options: ["Edafik", "Biotik", "Fisiografis", "Klimatik", "Astronomis"],
+                key: 1
+            },
+            {
+                q: "Tanaman kaktus mampu bertahan hidup di wilayah gurun yang gersang karena mampu beradaptasi terhadap...",
+                options: ["Suhu dingin yang ekstrem", "Curah hujan yang sangat rendah", "Lapisan tanah yang terlalu basah", "Kurangnya paparan sinar matahari", "Tiupan angin pegunungan"],
+                key: 1
+            },
+            {
+                q: "Setiap kenaikan ketinggian tempat sebesar 100 meter, suhu udara rata-rata akan turun sekitar...",
+                options: ["0,2 derajat Celsius", "0,4 derajat Celsius", "0,6 derajat Celsius", "1,0 derajat Celsius", "2,0 derajat Celsius"],
+                key: 2
+            },
+            {
+                q: "Tanah hasil abu letusan gunung api yang memiliki tingkat kesuburan sangat tinggi dinamakan tanah...",
+                options: ["Gambut", "Vulkanik", "Pasir", "Kapur", "Liat"],
+                key: 1
+            },
+            {
+                q: "Pada ketinggian tempat di atas 2.500 meter di atas permukaan laut, vegetasi alami yang masih mampu bertahan hidup adalah...",
+                options: ["Kelapa dan pohon bakau", "Tebu dan jagung", "Kopi dan pohon teh", "Edelweiss dan lumut gunung", "Pohon jati dan karet"],
+                key: 3
+            },
+            {
+                q: "Lahan gambut yang bersifat sangat asam di Pulau Sumatra dan Kalimantan umumnya dimanfaatkan manusia untuk perkebunan...",
+                options: ["Kelapa sawit", "Sayur kol", "Padi sawah irigasi", "Bunga apel", "Tanaman gandum"],
+                key: 0
+            },
+            {
+                q: "Hewan unta memiliki punuk penyimpan lemak dan bulu mata panjang untuk bertahan pada faktor iklim...",
+                options: ["Udara kutub yang membeku", "Suhu gurun yang panas dan kering", "Hujan lebat sepanjang musim", "Hutan tropis yang lembap", "Puncak pegunungan bersalju"],
+                key: 1
+            },
+            {
+                q: "Tanaman teh dan kopi tumbuh sangat subur di daerah dataran tinggi karena memerlukan kondisi fisik...",
+                options: ["Udara panas dan tanah berpasir", "Udara sejuk dan drainase air yang lancar", "Lahan tergenang air asin", "Suhu beku di bawah nol derajat", "Tanah berbatu kapur tanpa air"],
+                key: 1
+            },
+            {
+                q: "Lereng gunung yang sangat curam umumnya memiliki lapisan tanah yang tipis karena...",
+                options: ["Sering terbakar oleh matahari", "Terkikis oleh aliran air hujan yang deras", "Ditumbuhi oleh lumut tebal", "Tidak pernah dilalui oleh hewan", "Terlalu banyak mengandung zat hara"],
+                key: 1
+            },
+            {
+                q: "Faktor biotik yang memiliki daya ubah paling luas terhadap persebaran flora dan fauna di bumi adalah...",
+                options: ["Cacing tanah", "Serangga penyerbuk", "Manusia", "Jamur pengurai", "Burung pemakan biji"],
+                key: 2
+            },
+            {
+                q: "Keberadaan padang rumput sabana di Nusa Tenggara Timur terjadi akibat faktor klimatik berupa...",
+                options: ["Curah hujan tahunan yang minim", "Suhu udara di bawah titik beku", "Tiupan angin muson barat yang basah", "Langit yang selalu tertutup mendung", "Ketinggian tempat di atas 3.000 meter"],
+                key: 0
+            },
+            {
+                q: "Pohon bakau memiliki akar tunjang yang kuat untuk bertahan pada kondisi edafik berupa...",
+                options: ["Batuan padas yang keras di puncak bukit", "Lumpur basah dan terpaan ombak di muara pantai", "Tanah pasir tandus di tengah padang gurun", "Lapisan tanah beku di daerah kutub", "Tanah berkapur kering di pegunungan karst"],
+                key: 1
+            },
+            {
+                q: "Mengapa tanaman padi sangat cocok ditanam di tanah aluvial atau lempung?",
+                options: ["Karena tanah lempung berbutir kasar dan tidak menyimpan air", "Karena tanah lempung mampu menahan air dan unsur hara dengan baik", "Karena tanah lempung bersuhu sangat dingin", "Karena tanah lempung memiliki rasa yang asam", "Karena tanah lempung tidak dapat ditembus oleh akar tanaman"],
+                key: 1
+            },
+            {
+                q: "Manusia membawa bibit kopi dari Benua Afrika untuk dibudidayakan di perkebunan Indonesia. Tindakan ini mencerminkan peran faktor...",
+                options: ["Edafik alami", "Klimatik lokal", "Biotik antropogenik", "Fisiografis lereng", "Geomorfologis dasar laut"],
+                key: 2
+            },
+            {
+                q: "Sisi lereng gunung yang menghadap langsung ke arah hembusan angin laut umumnya memiliki vegetasi yang...",
+                options: ["Sangat tandus dan berbatu", "Lebih lebat karena menerima banyak uap air dan hujan", "Berupa padang pasir tanpa pohon", "Mati akibat tiupan angin", "Dipenuhi oleh tanaman kaktus berduri"],
+                key: 1
+            },
+            {
+                q: "Tumbuhan epifit seperti anggrek dan tanaman merambat dapat hidup di hutan tropis karena terlindung oleh...",
+                options: ["Pagar buatan manusia", "Tanah berpasir yang kering", "Naungan kanopi pohon-pohon besar", "Suhu dingin pegunungan tinggi", "Aliran air laut pasang"],
+                key: 2
+            },
+            {
+                q: "Pernyataan yang benar mengenai keterkaitan antarfaktor persebaran makhluk hidup adalah...",
+                options: ["Faktor edafik sama sekali tidak memengaruhi jenis tanaman", "Faktor klimatik bekerja sendiri tanpa dipengaruhi oleh ketinggian tempat", "Seluruh faktor lingkungan saling terhubung dalam menentukan kelayakan rumah makhluk hidup", "Makhluk hidup dapat bertahan di lingkungan mana pun tanpa memerlukan adaptasi fisik", "Hewan tidak dipengaruhi oleh ketersediaan tanaman di lingkungannya"],
+                key: 2
             }
-            pgHTML += `</div></div>`;
+        ];
+
+        // Kunci Jawaban Menjodohkan
+        const kunciJodoh = ["B", "A", "D", "E", "C"];
+
+        // Render 20 Soal PG
+        const pgContainer = document.getElementById('pg-container');
+        let pgHtml = '';
+        dataPG.forEach((item, index) => {
+            pgHtml += `
+            <div class="bg-blue-950/80 p-5 rounded-2xl border-2 border-cyan-400 shadow-md">
+                <p class="font-extrabold text-base sm:text-lg text-yellow-300 mb-3">
+                    <span class="px-2 py-1 bg-custom-yellow text-black rounded-lg text-xs mr-2">${index + 1}</span>
+                    ${item.q}
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+            `;
+            const letters = ['A', 'B', 'C', 'D', 'E'];
+            item.options.forEach((opt, optIndex) => {
+                pgHtml += `
+                    <label class="flex items-center space-x-3 p-3 bg-blue-900/60 hover:bg-custom-yellow hover:text-black rounded-xl cursor-pointer transition font-bold text-xs sm:text-sm border border-cyan-800">
+                        <input type="radio" name="soal_pg_${index}" value="${optIndex}" class="w-4 h-4 accent-custom-yellow">
+                        <span><strong>${letters[optIndex]}.</strong> ${opt}</span>
+                    </label>
+                `;
+            });
+            pgHtml += `</div></div>`;
+        });
+        pgContainer.innerHTML = pgHtml;
+
+        // Accordion Pertanyaan Pemantik
+        function toggleAccordion(contentId, iconId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(iconId);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
         }
-        pgContainer.innerHTML = pgHTML;
 
-        function kirimSkorWA() {
-            const nama = document.getElementById('namaSiswa').value;
-            if(!nama) { alert("Silakan isi Identitas/Nama Siswa terlebih dahulu!"); return; }
-
-            let skorTotal = 0;
-            const poinPerSoal = 4;
-
-            for(let i=0; i<20; i++){
-                const radios = document.getElementsByName(`pg${i}`);
-                for(let radio of radios){
-                    if(radio.checked && parseInt(radio.value) === kunciPG[i]){
-                        skorTotal += poinPerSoal;
+        // Kalkulasi Skor Objektif (PG: maks 50 + Jodoh: maks 20 = total 70)
+        function hitungSkor() {
+            let skorPG = 0;
+            dataPG.forEach((item, index) => {
+                const radios = document.getElementsByName(`soal_pg_${index}`);
+                for (let r of radios) {
+                    if (r.checked && parseInt(r.value) === item.key) {
+                        skorPG += 2.5;
                     }
                 }
-            }
+            });
 
-            for(let i=1; i<=5; i++){
+            let skorJodoh = 0;
+            for (let i = 1; i <= 5; i++) {
                 const val = document.getElementById(`jodoh${i}`).value;
-                if(val === kunciJodoh[i-1]){
-                    skorTotal += poinPerSoal;
+                if (val === kunciJodoh[i - 1]) {
+                    skorJodoh += 4;
                 }
             }
 
-            const pesan = `*NILAI LKPD GEOGRAFI*%0A%0AGrup: 11_GEO%0ANama: ${nama}%0ASkor Objektif (PG & Menjodohkan): *${skorTotal} / 100*%0A%0A_Catatan: Soal Esai akan diperiksa secara manual._`;
-            window.open(`https://wa.me/6285167431907?text=${pesan}`, '_blank');
+            const totalSkorObjektif = skorPG + skorJodoh;
+
+            document.getElementById('skorPGText').innerText = skorPG.toFixed(1);
+            document.getElementById('skorJodohText').innerText = skorJodoh;
+            document.getElementById('skorTotalText').innerText = totalSkorObjektif.toFixed(1);
+            document.getElementById('hasilSkorBox').classList.remove('hidden');
+
+            return { skorPG, skorJodoh, totalSkorObjektif };
         }
 
-        function kirimRefleksiWA() {
-            const nama = document.getElementById('namaSiswa').value;
-            const refleksi = document.getElementById('isiRefleksi').value;
-            
-            if(!nama) { alert("Silakan isi Identitas/Nama Siswa di bagian atas terlebih dahulu!"); return; }
-            if(!refleksi) { alert("Kotak refleksi tidak boleh kosong!"); return; }
+        // Kirim Nilai & Jawaban Esai ke WhatsApp
+        function kirimSkorKeWA() {
+            const nama = document.getElementById('namaSiswa').value.trim();
+            const kelas = document.getElementById('kelasSiswa').value.trim();
+            const tanggal = document.getElementById('tanggalLKPD').value;
 
-            const pesan = `*REFLEKSI SISWA GEOGRAFI*%0A%0AGrup: 11_GEO%0ANama: ${nama}%0A%0A*Isi Refleksi:*%0A"${refleksi}"`;
-            window.open(`https://wa.me/6285167431907?text=${pesan}`, '_blank');
+            if (!nama || !kelas) {
+                alert("Mohon lengkapi Identitas Siswa (Nama dan Kelas) di bagian atas terlebih dahulu!");
+                document.getElementById('identitas').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            const hasil = hitungSkor();
+
+            const e1 = document.getElementById('esai1').value.trim() || "-";
+            const e2 = document.getElementById('esai2').value.trim() || "-";
+            const e3 = document.getElementById('esai3').value.trim() || "-";
+            const e4 = document.getElementById('esai4').value.trim() || "-";
+            const e5 = document.getElementById('esai5').value.trim() || "-";
+
+            let pesan = `*LKPD GEOGRAFI KELAS XI (FASE F)*%0A`;
+            pesan += `*Grup:* 11_GEO%0A`;
+            pesan += `*Nama Lengkap:* ${nama}%0A`;
+            pesan += `*Kelas/No Absen:* ${kelas}%0A`;
+            pesan += `*Hari/Tanggal:* ${tanggal || "-"}%0A`;
+            pesan += `------------------------------------------%0A`;
+            pesan += `*HASIL SKOR OBJEKTIF SISWA:*%0A`;
+            pesan += `• Pilihan Ganda (20 Soal): *${hasil.skorPG.toFixed(1)} / 50*%0A`;
+            pesan += `• Menjodohkan (5 Soal): *${hasil.skorJodoh} / 20*%0A`;
+            pesan += `• *Total Skor Objektif: ${hasil.totalSkorObjektif.toFixed(1)} / 70*%0A`;
+            pesan += `------------------------------------------%0A`;
+            pesan += `*JAWABAN 5 SOAL ESAI (Maks 30 Poin):*%0A`;
+            pesan += `*1.* ${e1}%0A`;
+            pesan += `*2.* ${e2}%0A`;
+            pesan += `*3.* ${e3}%0A`;
+            pesan += `*4.* ${e4}%0A`;
+            pesan += `*5.* ${e5}%0A`;
+            pesan += `------------------------------------------%0A`;
+            pesan += `_Mohon koreksi dan penilaian untuk 5 Soal Esai tersebut. Terima kasih!_`;
+
+            const waURL = `https://wa.me/6285167431907?text=${pesan}`;
+            window.open(waURL, '_blank');
         }
+
+        // Kirim Refleksi Siswa ke WhatsApp
+        function kirimRefleksiKeWA() {
+            const nama = document.getElementById('namaSiswa').value.trim();
+            const kelas = document.getElementById('kelasSiswa').value.trim();
+
+            if (!nama || !kelas) {
+                alert("Mohon isi Nama dan Kelas di bagian Formulir Identitas terlebih dahulu!");
+                document.getElementById('identitas').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            const getRefVal = (name) => {
+                const radios = document.getElementsByName(name);
+                for (let r of radios) {
+                    if (r.checked) return r.value;
+                }
+                return "-";
+            };
+
+            const r1 = getRefVal('ref1');
+            const r2 = getRefVal('ref2');
+            const r3 = getRefVal('ref3');
+            const r4 = getRefVal('ref4');
+
+            const t1 = document.getElementById('refTanya1').value.trim() || "-";
+            const t2 = document.getElementById('refTanya2').value.trim() || "-";
+            const t3 = document.getElementById('refTanya3').value.trim() || "-";
+
+            let pesan = `*REFLEKSI PEMBELAJARAN GEOGRAFI*%0A`;
+            pesan += `*Grup:* 11_GEO%0A`;
+            pesan += `*Nama Lengkap:* ${nama}%0A`;
+            pesan += `*Kelas/No Absen:* ${kelas}%0A`;
+            pesan += `------------------------------------------%0A`;
+            pesan += `*TINGKAT PEMAHAMAN DIRI:*%0A`;
+            pesan += `1. Membedakan 4 faktor sebaran: *${r1}*%0A`;
+            pesan += `2. Jenis tanaman di tiap ketinggian: *${r2}*%0A`;
+            pesan += `3. Pengaruh tekstur tanah bagi air: *${r3}*%0A`;
+            pesan += `4. Peran manusia bagi kelestarian: *${r4}*%0A`;
+            pesan += `------------------------------------------%0A`;
+            pesan += `*URAIAN REFLEKSI PRIBADI:*%0A`;
+            pesan += `• *Materi paling menarik/mudah:*%0A${t1}%0A`;
+            pesan += `• *Kendala saat mengerjakan soal:*%0A${t2}%0A`;
+            pesan += `• *Rencana aksi nyata pelestarian:*%0A${t3}%0A`;
+
+            const waURL = `https://wa.me/6285167431907?text=${pesan}`;
+            window.open(waURL, '_blank');
+        }
+
+        // Set Default Date Hari Ini
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('tanggalLKPD').value = today;
+        });
     </script>
 </body>
 </html>
